@@ -1,0 +1,1168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Mars Investments Capital | Think Smart. Think Mars.</title>
+  <meta name="description"
+    content="Mars Investments Capital – India's trusted investment partner for Stocks, Mutual Funds, SIP, Bonds, IPO and more." />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.css" />
+  <style>
+    /* ===== HERO ===== */
+    .hero {
+      background: linear-gradient(135deg, #F7FAFB 0%, #E8F8F6 55%, #FFF8E6 100%);
+      padding: 72px 5% 60px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+      min-height: 88vh;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -120px;
+      right: -100px;
+      width: 520px;
+      height: 520px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(0, 184, 169, .13) 0%, transparent 70%);
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -80px;
+      left: 30%;
+      width: 380px;
+      height: 380px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(240, 180, 41, .1) 0%, transparent 70%);
+    }
+
+    .hero-left {
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--teal-light);
+      border: 1px solid rgba(0, 184, 169, .3);
+      padding: 6px 14px;
+      border-radius: 50px;
+      margin-bottom: 22px;
+      font-size: 13px;
+      color: var(--teal-dark);
+      font-weight: 600;
+    }
+
+    .hero-badge span {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--teal);
+      display: inline-block;
+      animation: pulse 2s infinite;
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(36px, 5vw, 58px);
+      line-height: 1.15;
+      font-weight: 800;
+      color: var(--dark);
+      margin-bottom: 18px;
+    }
+
+    .hero h1 .accent {
+      color: var(--teal);
+    }
+
+    .hero h1 .gold-t {
+      color: var(--gold-dark);
+    }
+
+    .hero-sub {
+      font-size: 17px;
+      color: var(--gray);
+      line-height: 1.7;
+      margin-bottom: 30px;
+      max-width: 480px;
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 28px;
+      margin-bottom: 36px;
+      flex-wrap: wrap;
+    }
+
+    .stat-chip {
+      display: flex;
+      flex-direction: column;
+      border-left: 3px solid var(--teal);
+      padding-left: 12px;
+    }
+
+    .stat-chip .num {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--dark);
+    }
+
+    .stat-chip .label {
+      font-size: 12px;
+      color: var(--gray);
+    }
+
+    .hero-form {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .hero-form input {
+      flex: 1;
+      min-width: 150px;
+      padding: 13px 16px;
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      outline: none;
+      transition: border-color .2s;
+    }
+
+    .hero-form input:focus {
+      border-color: var(--teal);
+    }
+
+    .hero-right {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      justify-content: center;
+    }
+
+    .hero-card-stack {
+      width: 100%;
+      max-width: 420px;
+      position: relative;
+    }
+
+    .market-card {
+      background: var(--white);
+      border-radius: 20px;
+      padding: 28px;
+      box-shadow: 0 20px 60px rgba(0, 184, 169, .15);
+      border: 1px solid rgba(0, 184, 169, .15);
+    }
+
+    .market-card h3 {
+      font-size: 14px;
+      color: var(--gray);
+      font-weight: 500;
+      margin-bottom: 20px;
+    }
+
+    .market-rows {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .market-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .market-row .mname {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 600;
+      font-size: 15px;
+    }
+
+    .micon {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+    }
+
+    .micon.t {
+      background: var(--teal-light);
+    }
+
+    .micon.g {
+      background: #FFF8E6;
+    }
+
+    .micon.b {
+      background: #E8F0FF;
+    }
+
+    .mchg.up {
+      color: #16A34A;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .mchg.dn {
+      color: #DC2626;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .mini-card {
+      position: absolute;
+      bottom: -22px;
+      right: -22px;
+      background: var(--dark);
+      border-radius: 14px;
+      padding: 16px 20px;
+      color: white;
+      box-shadow: 0 10px 30px rgba(13, 27, 42, .25);
+    }
+
+    .mini-card .mc-l {
+      font-size: 11px;
+      color: rgba(255, 255, 255, .6);
+      margin-bottom: 4px;
+    }
+
+    .mini-card .mc-v {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--gold);
+    }
+
+    .mini-card .mc-s {
+      font-size: 11px;
+      color: #16A34A;
+      font-weight: 600;
+    }
+
+    /* ===== PRODUCTS ===== */
+    .products-bg {
+      background: var(--light);
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 18px;
+    }
+
+    /* ===== ABOUT PREVIEW ===== */
+    .about-preview {
+      background: var(--white);
+    }
+
+    .ap-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 70px;
+      align-items: center;
+    }
+
+    .ap-left .section-sub {
+      margin-bottom: 28px;
+    }
+
+    .ap-points {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-bottom: 32px;
+    }
+
+    .ap-point {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 15px;
+      font-weight: 500;
+    }
+
+    .ap-point .check {
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      background: var(--teal-light);
+      color: var(--teal);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      flex-shrink: 0;
+    }
+
+    .ap-right-visual {
+      position: relative;
+    }
+
+    .ap-main-card {
+      background: linear-gradient(135deg, var(--dark) 0%, var(--dark2) 100%);
+      border-radius: 24px;
+      padding: 36px;
+      color: white;
+    }
+
+    .ap-main-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+
+    .ap-main-card p {
+      font-size: 14px;
+      color: rgba(255, 255, 255, .7);
+      line-height: 1.7;
+      margin-bottom: 28px;
+    }
+
+    .ap-stats-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .ap-stat {
+      background: rgba(255, 255, 255, .06);
+      border-radius: 12px;
+      padding: 16px;
+      border: 1px solid rgba(255, 255, 255, .1);
+    }
+
+    .ap-stat .asn {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--teal);
+    }
+
+    .ap-stat .asl {
+      font-size: 12px;
+      color: rgba(255, 255, 255, .6);
+      margin-top: 4px;
+    }
+
+    .ap-float {
+      position: absolute;
+      bottom: -18px;
+      right: -18px;
+      background: var(--gold);
+      border-radius: 14px;
+      padding: 14px 18px;
+      color: var(--dark);
+    }
+
+    .ap-float .aff {
+      font-size: 24px;
+      font-weight: 800;
+    }
+
+    .ap-float .afl {
+      font-size: 11px;
+      font-weight: 600;
+    }
+
+    /* ===== WHY MARS ===== */
+    .why-bg {
+      background: var(--light);
+    }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+
+    /* ===== VIDEO SECTION ===== */
+    .video-section {
+      background: linear-gradient(135deg, var(--dark) 0%, var(--dark2) 100%);
+      padding: 80px 5%;
+    }
+
+    .video-section .section-tag {
+      background: rgba(0, 184, 169, .15);
+      color: var(--teal);
+    }
+
+    .video-section .section-title {
+      color: var(--white);
+    }
+
+    .video-section .section-sub {
+      color: rgba(255, 255, 255, .65);
+    }
+
+    .video-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .video-left .v-points {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      margin-bottom: 32px;
+    }
+
+    .v-point {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+    }
+
+    .v-point .vp-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: rgba(0, 184, 169, .15);
+      color: var(--teal);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      flex-shrink: 0;
+    }
+
+    .v-point h4 {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 4px;
+    }
+
+    .v-point p {
+      font-size: 13px;
+      color: rgba(255, 255, 255, .6);
+      line-height: 1.5;
+    }
+
+    .video-wrapper {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      background: #000;
+      aspect-ratio: 16/9;
+      box-shadow: 0 30px 80px rgba(0, 0, 0, .4);
+    }
+
+    .video-thumb {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, #1A2A3A, #0D1B2A);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: opacity .4s;
+      z-index: 2;
+    }
+
+    .video-thumb::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="%2300B8A9" stroke-width="0.5" opacity="0.3"/><circle cx="50" cy="50" r="30" fill="none" stroke="%23F0B429" stroke-width="0.3" opacity="0.2"/></svg>') center/cover;
+    }
+
+    .play-btn {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: var(--teal);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      color: white;
+      margin-bottom: 16px;
+      transition: all .3s;
+      box-shadow: 0 0 0 12px rgba(0, 184, 169, .2);
+    }
+
+    .video-thumb:hover .play-btn {
+      background: var(--gold);
+      color: var(--dark);
+      transform: scale(1.1);
+    }
+
+    .video-thumb p {
+      color: rgba(255, 255, 255, .8);
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .video-frame {
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: none;
+    }
+
+    /* ===== ZERO COST ===== */
+    .zero-bg {
+      background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 100%);
+    }
+
+    .zero-bg .section-tag {
+      background: rgba(255, 255, 255, .2);
+      color: var(--white);
+    }
+
+    .zero-bg .section-title {
+      color: var(--white);
+    }
+
+    .zero-bg .section-sub {
+      color: rgba(255, 255, 255, .8);
+    }
+
+    .zero-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-bottom: 40px;
+    }
+
+    .zero-card {
+      background: rgba(255, 255, 255, .15);
+      border: 1px solid rgba(255, 255, 255, .25);
+      border-radius: 16px;
+      padding: 32px;
+      text-align: center;
+      backdrop-filter: blur(8px);
+      transition: all .3s;
+    }
+
+    .zero-card:hover {
+      background: rgba(255, 255, 255, .22);
+    }
+
+    .zero-card .zamt {
+      font-family: 'Playfair Display', serif;
+      font-size: 52px;
+      font-weight: 800;
+      color: var(--white);
+    }
+
+    .zero-card .zlabel {
+      color: rgba(255, 255, 255, .85);
+      font-size: 14px;
+      margin-top: 10px;
+    }
+
+    /* ===== FEATURES ===== */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    /* ===== TESTIMONIALS ===== */
+    .testi-bg {
+      background: var(--light);
+    }
+
+    .testi-swiper {
+      padding: 0 4px 56px !important;
+    }
+
+    @media(max-width:1024px) {
+      .hero {
+        min-height: auto;
+        padding: 60px 5% 50px;
+      }
+
+      .why-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .video-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .ap-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media(max-width:768px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-right {
+        display: none;
+      }
+
+      .zero-cards,
+      .features-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media(max-width:480px) {
+
+      .zero-cards,
+      .features-grid,
+      .why-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <nav></nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-left fade-up">
+      <div class="hero-badge"><span></span> SEBI Registered Investment Advisor</div>
+      <h1>Think <span class="accent">Smart.</span><br>Think <span class="gold-t">Mars</span><br>Investments.</h1>
+      <p class="hero-sub">India's trusted investment partner — empowering retail investors with smart tools, expert
+        research, and zero hidden fees.</p>
+      <div class="hero-stats">
+        <div class="stat-chip"><span class="num">10L+</span><span class="label">Happy Clients</span></div>
+        <div class="stat-chip"><span class="num">15+</span><span class="label">Years Experience</span></div>
+        <div class="stat-chip"><span class="num">500+</span><span class="label">Branches</span></div>
+      </div>
+      <div class="hero-form">
+        <input type="text" id="heroName" placeholder="Your Name" />
+        <input type="tel" id="heroPhone" placeholder="Mobile Number" />
+        <button class="btn-gold" onclick="heroSubmit()">GET STARTED →</button>
+      </div>
+    </div>
+    <div class="hero-right fade-up">
+      <div class="hero-card-stack">
+        <div class="market-card">
+          <h3>📈 Live Market Overview</h3>
+          <div class="market-rows">
+            <div class="market-row">
+              <div class="mname">
+                <div class="micon t">📊</div> NIFTY 50
+              </div>
+              <div>
+                <div style="font-weight:700;font-size:15px">24,812</div>
+                <div class="mchg up">▲ +1.24%</div>
+              </div>
+            </div>
+            <div class="market-row">
+              <div class="mname">
+                <div class="micon g">💹</div> SENSEX
+              </div>
+              <div>
+                <div style="font-weight:700;font-size:15px">81,403</div>
+                <div class="mchg up">▲ +0.98%</div>
+              </div>
+            </div>
+            <div class="market-row">
+              <div class="mname">
+                <div class="micon b">🥇</div> GOLD
+              </div>
+              <div>
+                <div style="font-weight:700;font-size:15px">₹72,450</div>
+                <div class="mchg dn">▼ -0.32%</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="mini-card">
+          <div class="mc-l">Portfolio Today</div>
+          <div class="mc-v">₹4,28,160</div>
+          <div class="mc-s">▲ +₹12,340 (+2.97%)</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST BAR -->
+  <div class="trust-bar">
+    <div class="trust-inner">
+      <div class="trust-item">
+        <div class="trust-icon">🏛️</div>
+        <div class="trust-text">
+          <div class="t-num">1 Platform</div>
+          <div class="t-label">For All Investments</div>
+        </div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">🤝</div>
+        <div class="trust-text">
+          <div class="t-num">10L+ Clients</div>
+          <div class="t-label">Trust Mars</div>
+        </div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">🏆</div>
+        <div class="trust-text">
+          <div class="t-num">15+ Years</div>
+          <div class="t-label">Industry Leaders</div>
+        </div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">🔬</div>
+        <div class="trust-text">
+          <div class="t-num">Award-Winning</div>
+          <div class="t-label">Research Team</div>
+        </div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">👤</div>
+        <div class="trust-text">
+          <div class="t-num">Dedicated</div>
+          <div class="t-label">Personal Advisors</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRODUCTS -->
+  <section class="products-bg">
+    <div class="wrap">
+      <div class="text-center fade-up">
+        <span class="section-tag">Investment Products</span>
+        <h2 class="section-title">A World of Investment Opportunities</h2>
+        <p class="section-sub">Everything you need to build wealth — all on one powerful platform.</p>
+      </div>
+      <div class="products-grid fade-up">
+        <a class="product-card" href="services.html">
+          <div class="prod-icon">📈</div>
+          <h3>Equity / Stocks</h3>
+          <p>Buy & sell NSE/BSE shares with real-time analytics</p>
+          <div class="prod-arrow">→</div>
+        </a>
+        <a class="product-card" href="services.html">
+          <div class="prod-icon">⚡</div>
+          <h3>Futures & Options</h3>
+          <p>Trade F&O contracts with expert guidance</p>
+          <div class="prod-arrow">→</div>
+        </a>
+        <!-- <a class="product-card" href="services.html">
+          <div class="prod-icon">🌐</div>
+          <h3>US Stocks</h3>
+          <p>Invest in global giants — Apple, Google, Tesla & more</p>
+          <div class="prod-arrow">→</div>
+        </a> -->
+        <a class="product-card" href="services.html">
+          <div class="prod-icon">💰</div>
+          <h3>Mutual Funds</h3>
+          <p>SIP & lumpsum investments across top AMCs</p>
+          <div class="prod-arrow">→</div>
+        </a>
+        <a class="product-card" href="services.html">
+          <div class="prod-icon">🌾</div>
+          <h3>Commodities</h3>
+          <p>Trade Gold, Silver, Crude Oil & agri commodities</p>
+          <div class="prod-arrow">→</div>
+        </a>
+        <a class="product-card" href="services.html">
+          <div class="prod-icon">📋</div>
+          <h3>IPO</h3>
+          <p>Apply to Initial Public Offerings with 1-click</p>
+          <div class="prod-arrow">→</div>
+        </a>
+        <!-- <a class="product-card" href="services.html">
+          <div class="prod-icon">🏦</div>
+          <h3>Fixed Deposits</h3>
+          <p>Safe, guaranteed returns from top-rated banks</p>
+          <div class="prod-arrow">→</div>
+        </a> -->
+        <a class="product-card" href="services.html">
+          <div class="prod-icon">📊</div>
+          <h3>Portfolio Management</h3>
+          <p>Expert-managed portfolios tailored to your goals</p>
+          <div class="prod-arrow">→</div>
+        </a>
+        <!-- <a class="product-card" href="services.html">
+          <div class="prod-icon">📜</div>
+          <h3>Bonds</h3>
+          <p>Government & corporate bonds for steady income</p>
+          <div class="prod-arrow">→</div>
+        </a> -->
+        <a class="product-card" href="services.html">
+          <div class="prod-icon">🤖</div>
+          <h3>Smart Advisory</h3>
+          <p>AI-powered portfolio recommendations for you</p>
+          <div class="prod-arrow">→</div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT PREVIEW -->
+  <section class="about-preview">
+    <div class="wrap">
+      <div class="ap-grid">
+        <div class="ap-left fade-up">
+          <span class="section-tag">About Us</span>
+          <h2 class="section-title">15+ Years of Trusted Investment Guidance</h2>
+          <p class="section-sub">Founded in 2009, Mars Investments Capital has been India's most trusted investment
+            partner — helping individuals and families build lasting wealth through smart, research-backed financial
+            decisions.</p>
+          <div class="ap-points">
+            <div class="ap-point">
+              <div class="check">✓</div> SEBI Registered & Fully Regulated
+            </div>
+            <div class="ap-point">
+              <div class="check">✓</div> Transparent — Zero Hidden Fees
+            </div>
+            <div class="ap-point">
+              <div class="check">✓</div> Award-Winning Research Team
+            </div>
+            <div class="ap-point">
+              <div class="check">✓</div> Dedicated Personal Investment Advisors
+            </div>
+            <div class="ap-point">
+              <div class="check">✓</div> 500+ Branches Pan-India
+            </div>
+          </div>
+          <a href="about.html" class="btn-primary">Know More About Us →</a>
+        </div>
+        <div class="ap-right fade-up">
+          <div class="ap-right-visual">
+            <div class="ap-main-card">
+              <h3>Our Mission</h3>
+              <p>To democratize wealth creation for every Indian by providing world-class investment tools, unbiased
+                research, and personalized guidance — at zero cost.</p>
+              <div class="ap-stats-grid">
+                <div class="ap-stat">
+                  <div class="asn">10L+</div>
+                  <div class="asl">Happy Clients</div>
+                </div>
+                <div class="ap-stat">
+                  <div class="asn">₹500Cr+</div>
+                  <div class="asl">AUM Managed</div>
+                </div>
+                <div class="ap-stat">
+                  <div class="asn">15+</div>
+                  <div class="asl">Years Experience</div>
+                </div>
+                <div class="ap-stat">
+                  <div class="asn">500+</div>
+                  <div class="asl">Pan-India Branches</div>
+                </div>
+              </div>
+            </div>
+            <div class="ap-float">
+              <div class="aff">SEBI ✓</div>
+              <div class="afl">Registered</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY MARS -->
+  <section class="why-bg">
+    <div class="wrap">
+      <div class="text-center fade-up">
+        <span class="section-tag">Why Choose Us</span>
+        <h2 class="section-title">Market Leaders For a Reason!</h2>
+        <p class="section-sub">Numbers that reflect our commitment to your financial growth.</p>
+      </div>
+      <div class="why-grid fade-up">
+        <div class="why-card">
+          <div class="wnum">15+</div>
+          <div class="wlabel">Years of Robust Research</div>
+        </div>
+        <div class="why-card">
+          <div class="wnum">10L+</div>
+          <div class="wlabel">Trusted Customers</div>
+        </div>
+        <div class="why-card">
+          <div class="wnum">500+</div>
+          <div class="wlabel">Branches Pan-India</div>
+        </div>
+        <div class="why-card">
+          <div class="wnum">200+</div>
+          <div class="wlabel">Expert Investment Advisors</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VIDEO SECTION -->
+  <section class="video-section">
+    <div class="wrap">
+      <div class="video-layout">
+        <div class="video-left fade-up">
+          <span class="section-tag">Watch & Learn</span>
+          <h2 class="section-title" style="color:var(--white)">See How Mars<br>Investments Works</h2>
+          <p class="section-sub">Thousands of Indians are building wealth smarter with Mars. Watch how we make investing
+            simple, transparent, and profitable.</p>
+          <div class="v-points">
+            <div class="v-point">
+              <div class="vp-icon">📚</div>
+              <div>
+                <h4>Free Educational Content</h4>
+                <p>200+ videos on stocks, SIP, F&O and more</p>
+              </div>
+            </div>
+            <div class="v-point">
+              <div class="vp-icon">🎯</div>
+              <div>
+                <h4>Expert Market Analysis</h4>
+                <p>Daily market outlook by our research team</p>
+              </div>
+            </div>
+            <div class="v-point">
+              <div class="vp-icon">💡</div>
+              <div>
+                <h4>Beginner-Friendly</h4>
+                <p>Start with ₹500 — no experience needed</p>
+              </div>
+            </div>
+          </div>
+          <a href="https://www.youtube.com/@YourChannel" target="_blank" class="btn-gold">▶ Watch on YouTube</a>
+        </div>
+        <div class="fade-up">
+          <div class="video-wrapper">
+            <div class="video-thumb" id="videoThumb" onclick="playVideo()">
+              <div class="play-btn">▶</div>
+              <p>Watch Our Story — How Mars Investments Works</p>
+            </div>
+            <iframe class="video-frame" id="videoFrame"
+              data-src="https://www.youtube.com/embed/YOUR_VIDEO_ID?autoplay=1&rel=0"
+              allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture"
+              allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ZERO COST -->
+  <section class="zero-bg">
+    <div class="wrap">
+      <div class="text-center fade-up">
+        <span class="section-tag">Pricing</span>
+        <h2 class="section-title">Trusted Advice at ₹0 Cost</h2>
+        <p class="section-sub">Start your investment journey without worrying about charges. No hidden fees. Ever.</p>
+      </div>
+      <div class="zero-cards fade-up">
+        <div class="zero-card">
+          <div class="zamt">₹0</div>
+          <div class="zlabel">Account Opening Charges</div>
+        </div>
+        <div class="zero-card">
+          <div class="zamt">₹0</div>
+          <div class="zlabel">Brokerage for First 30 Days</div>
+        </div>
+        <div class="zero-card">
+          <div class="zamt">₹0</div>
+          <div class="zlabel">AMC & Admin Charges — Year 1</div>
+        </div>
+      </div>
+      <div class="text-center"><a href="contact.html" class="btn-white">GET STARTED NOW →</a></div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section>
+    <div class="wrap">
+      <div class="text-center fade-up">
+        <span class="section-tag">How We Help</span>
+        <h2 class="section-title">Multiple Ways To Grow Your Money</h2>
+        <p class="section-sub">Choose your investment style — we have the right tools for every type of investor.</p>
+      </div>
+      <div class="features-grid fade-up">
+        <div class="feature-card">
+          <div class="feat-icon">⚡</div>
+          <h3>Intraday Trading</h3>
+          <p>Free daily trade recommendations powered by our expert research team. Make informed decisions every single
+            day with precision calls.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feat-icon">📐</div>
+          <h3>Options Strategies</h3>
+          <p>Simplified, easy-to-follow options strategies designed to maximize returns while managing risk effectively
+            for every level of investor.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feat-icon">🌱</div>
+          <h3>Long Term Wealth</h3>
+          <p>Build lasting wealth with our GARP philosophy — Growth at a Reasonable Price. Let your money work harder
+            and longer for you.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS SWIPER -->
+  <section class="testi-bg">
+    <div class="wrap">
+      <div class="text-center fade-up">
+        <span class="section-tag">Client Stories</span>
+        <h2 class="section-title">What Our Investors Say</h2>
+        <p class="section-sub">Real stories from real people who trusted Mars with their financial future.</p>
+      </div>
+      <div class="swiper testi-swiper fade-up">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <div class="testi-card">
+              <div class="stars">★★★★★</div>
+              <p class="quote">"Mars helped me start my SIP journey with just ₹500/month. Now I have a portfolio worth
+                ₹4.2L in just 3 years. The advisor guidance is exceptional!"</p>
+              <div class="testi-author">
+                <div class="testi-avatar">👨</div>
+                <div>
+                  <div class="testi-name">Rajesh Kumar</div>
+                  <div class="testi-loc">Software Engineer, Mumbai</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="testi-card">
+              <div class="stars">★★★★★</div>
+              <p class="quote">"The best investment advisory service in India. Truly zero hidden fees — I verified it
+                myself. My Nifty portfolio is up 28% this year thanks to their research."</p>
+              <div class="testi-author">
+                <div class="testi-avatar">👩</div>
+                <div>
+                  <div class="testi-name">Priya Sharma</div>
+                  <div class="testi-loc">Business Owner, Chennai</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="testi-card">
+              <div class="stars">★★★★★</div>
+              <p class="quote">"I was always scared of the stock market. Mars Investments made it so simple. Their
+                educational videos and personal advisor calls changed my life completely!"</p>
+              <div class="testi-author">
+                <div class="testi-avatar">👨</div>
+                <div>
+                  <div class="testi-name">Karthik Suresh</div>
+                  <div class="testi-loc">Teacher, Bangalore</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="testi-card">
+              <div class="stars">★★★★★</div>
+              <p class="quote">"My portfolio grew by 32% last year with their expert PMS service. The team is
+                professional, responsive, and truly cares about your financial goals."</p>
+              <div class="testi-author">
+                <div class="testi-avatar">👩</div>
+                <div>
+                  <div class="testi-name">Meena Patel</div>
+                  <div class="testi-loc">Doctor, Ahmedabad</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="testi-card">
+              <div class="stars">★★★★★</div>
+              <p class="quote">"Switched from another broker to Mars — best decision ever. The research reports are
+                detailed and the app is super easy to use. Highly recommend!"</p>
+              <div class="testi-author">
+                <div class="testi-avatar">👨</div>
+                <div>
+                  <div class="testi-name">Vikram Nair</div>
+                  <div class="testi-loc">CA, Hyderabad</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="testi-card">
+              <div class="stars">★★★★★</div>
+              <p class="quote">"Mars Investments helped me plan for my retirement. Their long-term portfolio strategy
+                has been spot-on. I feel financially secure for the first time in my life."</p>
+              <div class="testi-author">
+                <div class="testi-avatar">👩</div>
+                <div>
+                  <div class="testi-name">Lakshmi Venkat</div>
+                  <div class="testi-loc">Homemaker, Coimbatore</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA STRIP -->
+  <div class="cta-strip fade-up">
+    <h2>Ready to Start Your Investment Journey?</h2>
+    <p>Join 10 lakh+ Indians who trust Mars Investments Capital with their financial future.</p>
+    <a href="contact.html" class="btn-white">Open Free Account</a>
+    <a href="services.html" class="btn-outline-white">Explore Services</a>
+  </div>
+
+  <footer></footer>
+
+  <script src="shared.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.js"></script>
+  <script>
+    // Testimonials Swiper
+    new Swiper('.testi-swiper', {
+      slidesPerView: 1,
+      spaceBetween: 24,
+      loop: true,
+      autoplay: { delay: 4500, disableOnInteraction: false },
+      pagination: { el: '.swiper-pagination', clickable: true },
+      navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+      breakpoints: { 640: { slidesPerView: 2 }, 1024: { slidesPerView: 3 } }
+    });
+
+    // Hero form
+    function heroSubmit() {
+      const name = document.getElementById('heroName').value.trim();
+      const phone = document.getElementById('heroPhone').value.trim();
+      if (!name || !phone) { alert('Please fill in your name and mobile number.'); return; }
+      alert('Thanks ' + name + '! Our advisor will call you at ' + phone + ' shortly. 🚀');
+    }
+
+    // Video play
+    function playVideo() {
+      const thumb = document.getElementById('videoThumb');
+      const frame = document.getElementById('videoFrame');
+      frame.src = frame.getAttribute('data-src');
+      frame.style.display = 'block';
+      thumb.style.display = 'none';
+    }
+  </script>
+</body>
+
+</html>

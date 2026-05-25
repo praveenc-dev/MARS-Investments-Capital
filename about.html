@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>About Us | Mars Investments Capital</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.css" />
+  <style>
+    /* Story Section */
+    .story-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 70px;
+      align-items: center;
+    }
+
+    .story-img {
+      border-radius: 24px;
+      overflow: hidden;
+      background: linear-gradient(135deg, var(--teal-light), #FFF8E6);
+      height: 420px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .story-img .si-inner {
+      text-align: center;
+    }
+
+    .story-img .si-logo {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      border: 4px solid var(--gold);
+      overflow: hidden;
+      margin: 0 auto 16px;
+    }
+
+    .story-img .si-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .story-img h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--dark);
+    }
+
+    .story-img p {
+      color: var(--gray);
+      font-size: 14px;
+    }
+
+    .story-badge {
+      position: absolute;
+      bottom: 24px;
+      right: 24px;
+      background: var(--dark);
+      color: white;
+      padding: 12px 18px;
+      border-radius: 12px;
+    }
+
+    .story-badge .sb-n {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--gold);
+    }
+
+    .story-badge .sb-l {
+      font-size: 11px;
+      color: rgba(255, 255, 255, .7);
+    }
+
+    .story-right .section-sub {
+      margin-bottom: 24px;
+    }
+
+    .story-right p {
+      font-size: 15px;
+      color: var(--gray);
+      line-height: 1.8;
+      margin-bottom: 16px;
+    }
+
+    /* MVV */
+    .mvv-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .mvv-card {
+      border-radius: 20px;
+      padding: 36px 28px;
+      text-align: center;
+      transition: all .3s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .mvv-card.mission {
+      background: linear-gradient(135deg, var(--dark), var(--dark2));
+      color: white;
+    }
+
+    .mvv-card.vision {
+      background: linear-gradient(135deg, var(--teal), var(--teal-dark));
+      color: white;
+    }
+
+    .mvv-card.values {
+      background: linear-gradient(135deg, #F0B429, #D9A01E);
+      color: var(--dark);
+    }
+
+    .mvv-card .mvv-icon {
+      font-size: 44px;
+      margin-bottom: 18px;
+    }
+
+    .mvv-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 14px;
+    }
+
+    .mvv-card p {
+      font-size: 14px;
+      line-height: 1.75;
+      opacity: .9;
+    }
+
+    /* Timeline */
+    .timeline {
+      position: relative;
+      padding: 0 0 0 32px;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 10px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--teal), var(--gold));
+    }
+
+    .tl-item {
+      position: relative;
+      margin-bottom: 40px;
+    }
+
+    .tl-item::before {
+      content: '';
+      position: absolute;
+      left: -28px;
+      top: 6px;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--teal);
+      border: 3px solid white;
+      box-shadow: 0 0 0 2px var(--teal);
+    }
+
+    .tl-year {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--teal);
+      letter-spacing: 1px;
+      margin-bottom: 6px;
+    }
+
+    .tl-item h4 {
+      font-size: 17px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .tl-item p {
+      font-size: 14px;
+      color: var(--gray);
+      line-height: 1.6;
+    }
+
+    /* Team Swiper */
+    .team-bg {
+      background: var(--light);
+    }
+
+    .team-card {
+      background: var(--white);
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1.5px solid var(--border);
+      text-align: center;
+      transition: all .3s;
+    }
+
+    .team-card:hover {
+      box-shadow: 0 12px 40px rgba(0, 184, 169, .12);
+      transform: translateY(-4px);
+    }
+
+    .team-avatar {
+      height: 180px;
+      background: linear-gradient(135deg, var(--teal-light), #FFF8E6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 72px;
+    }
+
+    .team-info {
+      padding: 24px 20px;
+    }
+
+    .team-info h3 {
+      font-size: 17px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .team-info .role {
+      font-size: 13px;
+      color: var(--teal);
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .team-info p {
+      font-size: 13px;
+      color: var(--gray);
+      line-height: 1.6;
+    }
+
+    /* Achievements */
+    .achieve-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+
+    .achieve-card {
+      border-radius: 18px;
+      padding: 28px 20px;
+      text-align: center;
+      background: var(--white);
+      border: 1.5px solid var(--border);
+      transition: all .3s;
+    }
+
+    .achieve-card:hover {
+      border-color: var(--gold);
+      box-shadow: 0 8px 30px rgba(240, 180, 41, .1);
+    }
+
+    .achieve-card .a-icon {
+      font-size: 36px;
+      margin-bottom: 14px;
+    }
+
+    .achieve-card h4 {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .achieve-card p {
+      font-size: 13px;
+      color: var(--gray);
+    }
+
+    .achieve-card .a-badge {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--dark);
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 50px;
+      margin-top: 10px;
+    }
+
+    @media(max-width:1024px) {
+      .achieve-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media(max-width:768px) {
+
+      .story-grid,
+      .mvv-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .achieve-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media(max-width:480px) {
+      .achieve-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <nav></nav>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <p class="ph-tag">Who We Are</p>
+    <h1>About <span>Mars Investments</span></h1>
+    <p>15+ years of empowering Indians to build lasting wealth through smart, research-backed investment decisions.</p>
+    <div class="breadcrumb"><a href="index.html">Home</a><span>/</span><span>About Us</span></div>
+  </div>
+
+  <!-- STORY -->
+  <section>
+    <div class="wrap">
+      <div class="story-grid">
+        <div class="fade-up">
+          <div class="story-img">
+            <div class="si-inner">
+              <div class="si-logo"><img src="logo.jpeg" alt="Mars Investments Logo"></div>
+              <h3>Mars Investments Capital</h3>
+              <p>Trusted Since 2009</p>
+            </div>
+            <div class="story-badge">
+              <div class="sb-n">₹500Cr+</div>
+              <div class="sb-l">AUM Managed</div>
+            </div>
+          </div>
+        </div>
+        <div class="story-right fade-up">
+          <span class="section-tag">Our Story</span>
+          <h2 class="section-title">Built on Trust,<br>Driven by Results</h2>
+          <p>Mars Investments Capital was founded in 2009 with a simple but powerful vision — to make world-class
+            investment guidance accessible to every Indian, regardless of their financial background or experience
+            level.</p>
+          <p>What started as a small advisory firm in Chennai has grown into a pan-India financial powerhouse with 500+
+            branches, 10 lakh+ clients, and ₹500 crore+ in assets under management.</p>
+          <p>Today, we are proud to be one of India's most trusted SEBI-registered investment advisors — offering
+            everything from equity trading and mutual funds to US stocks and portfolio management services.</p>
+          <div style="display:flex;gap:16px;margin-top:28px;">
+            <a href="contact.html" class="btn-primary">Start Investing →</a>
+            <a href="services.html" class="btn-outline">Our Services</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MISSION VISION VALUES -->
+  <section style="background:var(--light)">
+    <div class="wrap">
+      <div class="text-center fade-up">
+        <span class="section-tag">What Drives Us</span>
+        <h2 class="section-title">Mission, Vision & Values</h2>
+      </div>
+      <div class="mvv-grid fade-up">
+        <div class="mvv-card mission">
+          <div class="mvv-icon">🎯</div>
+          <h3>Our Mission</h3>
+          <p>To democratize wealth creation for every Indian by providing world-class investment tools, unbiased
+            research, and personalized guidance — at zero cost.</p>
+        </div>
+        <div class="mvv-card vision">
+          <div class="mvv-icon">🔭</div>
+          <h3>Our Vision</h3>
+          <p>To be India's most trusted investment platform — empowering 1 crore Indians to achieve financial freedom
+            through transparent, data-driven investing by 2030.</p>
+        </div>
+        <div class="mvv-card values">
+          <div class="mvv-icon">💎</div>
+          <h3>Our Values</h3>
+          <p>Transparency in every action. Integrity in every advice. Excellence in every research report. Your
+            financial well-being is always our first priority.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- JOURNEY TIMELINE -->
+  <section>
+    <div class="wrap">
+      <div class="text-center fade-up" style="margin-bottom:48px;">
+        <span class="section-tag">Our Journey</span>
+        <h2 class="section-title">15+ Years of Milestones</h2>
+      </div>
+      <div style="max-width:700px;margin:0 auto" class="fade-up">
+        <div class="timeline">
+          <div class="tl-item">
+            <div class="tl-year">2009</div>
+            <h4>Foundation</h4>
+            <p>Mars Investments Capital founded in Chennai with a vision to democratize investing for every Indian.</p>
+          </div>
+          <div class="tl-item">
+            <div class="tl-year">2012</div>
+            <h4>SEBI Registration</h4>
+            <p>Received full SEBI registration as Investment Advisor — a milestone that set us apart in the industry.
+            </p>
+          </div>
+          <div class="tl-item">
+            <div class="tl-year">2015</div>
+            <h4>Pan-India Expansion</h4>
+            <p>Crossed 100+ branches and 1 lakh clients across India. Launched online trading platform.</p>
+          </div>
+          <div class="tl-item">
+            <div class="tl-year">2018</div>
+            <h4>₹100Cr AUM Milestone</h4>
+            <p>Crossed ₹100 crore in assets under management. Launched Mutual Fund and SIP advisory services.</p>
+          </div>
+          <div class="tl-item">
+            <div class="tl-year">2021</div>
+            <h4>Digital Transformation</h4>
+            <p>Launched fully digital onboarding, mobile app, and AI-powered Smart Advisory portfolio management.</p>
+          </div>
+          <div class="tl-item">
+            <div class="tl-year">2024</div>
+            <h4>10 Lakh Clients</h4>
+            <p>Celebrated reaching 10 lakh clients and ₹500Cr+ AUM. Awarded Best Investment Advisor — South India.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEAM SWIPER -->
+  <section class="team-bg">
+    <div class="wrap">
+      <div class="text-center fade-up">
+        <span class="section-tag">Our People</span>
+        <h2 class="section-title">Meet the Expert Team</h2>
+        <p class="section-sub">Our team of SEBI-certified advisors and market experts is committed to your financial
+          success.</p>
+      </div>
+      <div class="swiper team-swiper fade-up">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <div class="team-card">
+              <div class="team-avatar">👨‍💼</div>
+              <div class="team-info">
+                <h3>Arun Krishnamurthy</h3>
+                <div class="role">Founder & CEO</div>
+                <p>20+ years in financial markets. Ex-NSE. SEBI-certified. Visionary behind Mars Investments.</p>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="team-card">
+              <div class="team-avatar">👩‍💼</div>
+              <div class="team-info">
+                <h3>Divya Raghunathan</h3>
+                <div class="role">Chief Research Officer</div>
+                <p>15+ years in equity research. Specializes in Large Cap & Mid Cap stock picking strategies.</p>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="team-card">
+              <div class="team-avatar">👨‍💻</div>
+              <div class="team-info">
+                <h3>Sanjay Menon</h3>
+                <div class="role">Head of Technology</div>
+                <p>IIT Madras alumnus. Built Mars's trading platform from scratch. Expert in fintech innovation.</p>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="team-card">
+              <div class="team-avatar">👩‍🏫</div>
+              <div class="team-info">
+                <h3>Kavitha Sundaram</h3>
+                <div class="role">Head of Client Advisory</div>
+                <p>CFA Charter holder. 12+ years guiding HNI clients to financial freedom through smart planning.</p>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="team-card">
+              <div class="team-avatar">👨‍📊</div>
+              <div class="team-info">
+                <h3>Ramesh Babu</h3>
+                <div class="role">Derivatives Strategist</div>
+                <p>F&O expert with 18 years of market experience. Known for high-accuracy options strategies.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ACHIEVEMENTS -->
+  <section>
+    <div class="wrap">
+      <div class="text-center fade-up">
+        <span class="section-tag">Recognition</span>
+        <h2 class="section-title">Our Remarkable Achievements</h2>
+      </div>
+      <div class="achieve-grid fade-up">
+        <div class="achieve-card">
+          <div class="a-icon">🏆</div>
+          <h4>Best Investment Advisor</h4>
+          <p>South India — Financial Excellence Awards</p>
+          <div class="a-badge">2024</div>
+        </div>
+        <div class="achieve-card">
+          <div class="a-icon">🔬</div>
+          <h4>Best Research Team</h4>
+          <p>National Stock Exchange — Analyst Excellence</p>
+          <div class="a-badge">2023</div>
+        </div>
+        <div class="achieve-card">
+          <div class="a-icon">💻</div>
+          <h4>Best Fintech Innovation</h4>
+          <p>SEBI — Digital Transformation Award</p>
+          <div class="a-badge">2022</div>
+        </div>
+        <div class="achieve-card">
+          <div class="a-icon">⭐</div>
+          <h4>Customer Satisfaction</h4>
+          <p>4.8/5 rating across 50,000+ verified reviews</p>
+          <div class="a-badge">2024</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="cta-strip fade-up">
+    <h2>Ready to Invest Smarter?</h2>
+    <p>Join 10 lakh+ happy clients who trust Mars Investments Capital.</p>
+    <a href="contact.html" class="btn-white">Open Free Account →</a>
+    <a href="services.html" class="btn-outline-white">Explore Services</a>
+  </div>
+
+  <footer></footer>
+  <script src="shared.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.js"></script>
+  <script>
+    new Swiper('.team-swiper', {
+      slidesPerView: 1, spaceBetween: 24, loop: true,
+      autoplay: { delay: 4000, disableOnInteraction: false },
+      pagination: { el: '.swiper-pagination', clickable: true },
+      navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+      breakpoints: { 640: { slidesPerView: 2 }, 1024: { slidesPerView: 3 } }
+    });
+  </script>
+</body>
+
+</html>

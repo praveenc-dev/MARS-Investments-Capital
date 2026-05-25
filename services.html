@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Services | Mars Investments Capital</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Filter Tabs */
+    .filter-tabs {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 44px;
+    }
+
+    .filter-btn {
+      padding: 10px 22px;
+      border-radius: 50px;
+      border: 1.5px solid var(--border);
+      background: var(--white);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all .3s;
+      color: var(--gray);
+    }
+
+    .filter-btn.active,
+    .filter-btn:hover {
+      background: var(--teal);
+      color: white;
+      border-color: var(--teal);
+    }
+
+    /* Service Cards */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .svc-card {
+      background: var(--white);
+      border-radius: 20px;
+      padding: 32px 28px;
+      border: 1.5px solid var(--border);
+      transition: all .3s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .svc-card::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, var(--teal), var(--gold));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform .4s;
+    }
+
+    .svc-card:hover::after {
+      transform: scaleX(1);
+    }
+
+    .svc-card:hover {
+      box-shadow: 0 16px 50px rgba(0, 184, 169, .12);
+      transform: translateY(-5px);
+    }
+
+    .svc-icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 18px;
+      background: var(--teal-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 30px;
+      margin-bottom: 20px;
+    }
+
+    .svc-card h3 {
+      font-size: 19px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .svc-card .svc-desc {
+      font-size: 14px;
+      color: var(--gray);
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+
+    .svc-features {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+
+    .svc-features li {
+      font-size: 13px;
+      color: var(--gray);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .svc-features li::before {
+      content: '✓';
+      color: var(--teal);
+      font-weight: 700;
+    }
+
+    .svc-link {
+      color: var(--teal);
+      font-size: 14px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: gap .2s;
+    }
+
+    .svc-link:hover {
+      gap: 10px;
+    }
+
+    /* Process */
+    .process-bg {
+      background: linear-gradient(135deg, var(--dark) 0%, var(--dark2) 100%);
+    }
+
+    .process-bg .section-tag {
+      background: rgba(0, 184, 169, .15);
+      color: var(--teal);
+    }
+
+    .process-bg .section-title {
+      color: var(--white);
+    }
+
+    .process-bg .section-sub {
+      color: rgba(255, 255, 255, .65);
+    }
+
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      position: relative;
+    }
+
+    .process-steps::before {
+      content: '';
+      position: absolute;
+      top: 36px;
+      left: 12.5%;
+      right: 12.5%;
+      height: 2px;
+      background: linear-gradient(90deg, var(--teal), var(--gold));
+      z-index: 0;
+    }
+
+    .process-step {
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .ps-num {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: var(--teal);
+      color: white;
+      font-size: 24px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      border: 4px solid var(--dark2);
+      position: relative;
+      z-index: 2;
+    }
+
+    .process-step:nth-child(even) .ps-num {
+      background: var(--gold);
+      color: var(--dark);
+    }
+
+    .process-step h4 {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+
+    .process-step p {
+      font-size: 13px;
+      color: rgba(255, 255, 255, .6);
+      line-height: 1.6;
+      max-width: 180px;
+      margin: 0 auto;
+    }
+
+    /* Pricing table */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .price-card {
+      border-radius: 20px;
+      padding: 36px 28px;
+      border: 1.5px solid var(--border);
+      text-align: center;
+      position: relative;
+      transition: all .3s;
+      background: var(--white);
+    }
+
+    .price-card.popular {
+      border-color: var(--teal);
+      box-shadow: 0 12px 40px rgba(0, 184, 169, .15);
+    }
+
+    .pop-badge {
+      position: absolute;
+      top: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--teal);
+      color: white;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 4px 16px;
+      border-radius: 50px;
+      white-space: nowrap;
+    }
+
+    .price-card h3 {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .price-card .price {
+      font-family: 'Playfair Display', serif;
+      font-size: 48px;
+      font-weight: 800;
+      color: var(--teal);
+      margin: 20px 0 4px;
+    }
+
+    .price-card .price-label {
+      font-size: 13px;
+      color: var(--gray);
+      margin-bottom: 24px;
+    }
+
+    .price-card ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 28px;
+      text-align: left;
+    }
+
+    .price-card ul li {
+      font-size: 14px;
+      color: var(--gray);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .price-card ul li.yes::before {
+      content: '✓';
+      color: var(--teal);
+      font-weight: 700;
+    }
+
+    .price-card ul li.no {
+      opacity: .5;
+    }
+
+    .price-card ul li.no::before {
+      content: '✕';
+      color: var(--gray);
+    }
+
+    @media(max-width:1024px) {
+      .services-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .process-steps {
+        grid-template-columns: 1fr 1fr;
+        gap: 32px;
+      }
+
+      .process-steps::before {
+        display: none;
+      }
+    }
+
+    @media(max-width:768px) {
+
+      .services-grid,
+      .pricing-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <nav></nav>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <p class="ph-tag">What We Offer</p>
+    <h1>Our <span>Investment Services</span></h1>
+    <p>From equities to bonds, mutual funds to US stocks — one platform for all your investment needs.</p>
+    <div class="breadcrumb"><a href="index.html">Home</a><span>/</span><span>Services</span></div>
+  </div>
+
+  <!-- SERVICES -->
+  <section>
+    <div class="wrap">
+      <div class="text-center fade-up">
+        <span class="section-tag">All Services</span>
+        <h2 class="section-title">Everything You Need to Build Wealth</h2>
+        <p class="section-sub">Comprehensive investment solutions tailored to every type of investor — beginner to
+          expert.</p>
+      </div>
+      <div class="filter-tabs fade-up">
+        <button class="filter-btn active">All</button>
+        <button class="filter-btn">Equity</button>
+        <button class="filter-btn">Derivatives</button>
+        <button class="filter-btn">Mutual Funds</button>
+        <button class="filter-btn">Fixed Income</button>
+        <button class="filter-btn">Advisory</button>
+      </div>
+      <div class="services-grid fade-up">
+        <div class="svc-card">
+          <div class="svc-icon">📈</div>
+          <h3>Equity / Stocks</h3>
+          <p class="svc-desc">Buy and sell shares listed on NSE and BSE with real-time data, research reports, and
+            expert recommendations.</p>
+          <ul class="svc-features">
+            <li>NSE & BSE listed stocks</li>
+            <li>Real-time market data</li>
+            <li>Expert stock recommendations</li>
+            <li>Portfolio tracking & alerts</li>
+          </ul>
+          <a href="contact.html" class="svc-link">Get Started →</a>
+        </div>
+        <div class="svc-card">
+          <div class="svc-icon">⚡</div>
+          <h3>Futures & Options</h3>
+          <p class="svc-desc">Trade F&O contracts with our expert derivatives strategists who have 15+ years of market
+            experience.</p>
+          <ul class="svc-features">
+            <li>Index & Stock F&O</li>
+            <li>Options strategy builder</li>
+            <li>Risk management tools</li>
+            <li>Daily F&O recommendations</li>
+          </ul>
+          <a href="contact.html" class="svc-link">Get Started →</a>
+        </div>
+        <div class="svc-card">
+          <div class="svc-icon">🌐</div>
+          <h3>US Stocks</h3>
+          <p class="svc-desc">Invest in global market leaders — Apple, Google, Tesla, Amazon and more with fractional
+            investing from ₹100.</p>
+          <ul class="svc-features">
+            <li>5000+ US listed stocks</li>
+            <li>Fractional investing from ₹100</li>
+            <li>Real-time USD rates</li>
+            <li>Tax-efficient structure</li>
+          </ul>
+          <a href="contact.html" class="svc-link">Get Started →</a>
+        </div>
+        <div class="svc-card">
+          <div class="svc-icon">💰</div>
+          <h3>Mutual Funds & SIP</h3>
+          <p class="svc-desc">Invest in 2000+ mutual funds from 40+ AMCs with our research-backed fund selection and SIP
+            automation.</p>
+          <ul class="svc-features">
+            <li>2000+ curated funds</li>
+            <li>SIP from ₹500/month</li>
+            <li>Zero commission on direct funds</li>
+            <li>Smart fund comparisons</li>
+          </ul>
+          <a href="contact.html" class="svc-link">Get Started →</a>
+        </div>
+        <div class="svc-card">
+          <div class="svc-icon">🌾</div>
+          <h3>Commodities</h3>
+          <p class="svc-desc">Trade Gold, Silver, Crude Oil, Natural Gas and agri-commodities on MCX with expert trading
+            signals.</p>
+          <ul class="svc-features">
+            <li>MCX & NCDEX trading</li>
+            <li>Daily commodity calls</li>
+            <li>Live commodity charts</li>
+            <li>Hedging strategies</li>
+          </ul>
+          <a href="contact.html" class="svc-link">Get Started →</a>
+        </div>
+        <div class="svc-card">
+          <div class="svc-icon">📋</div>
+          <h3>IPO Applications</h3>
+          <p class="svc-desc">Apply to upcoming IPOs in one click via ASBA/UPI. Get IPO analysis and GMP tracking in
+            real time.</p>
+          <ul class="svc-features">
+            <li>1-click ASBA application</li>
+            <li>IPO research reports</li>
+            <li>GMP & subscription tracking</li>
+            <li>Allotment status updates</li>
+          </ul>
+          <a href="contact.html" class="svc-link">Get Started →</a>
+        </div>
+        <div class="svc-card">
+          <div class="svc-icon">🏦</div>
+          <h3>Fixed Deposits</h3>
+          <p class="svc-desc">Earn guaranteed returns with FDs from top-rated banks and NBFCs — all managed from one
+            platform.</p>
+          <ul class="svc-features">
+            <li>Up to 9.5% interest p.a.</li>
+            <li>Top-rated banks & NBFCs</li>
+            <li>Flexible tenure options</li>
+            <li>Senior citizen benefits</li>
+          </ul>
+          <a href="contact.html" class="svc-link">Get Started →</a>
+        </div>
+        <div class="svc-card">
+          <div class="svc-icon">📜</div>
+          <h3>Bonds</h3>
+          <p class="svc-desc">Invest in government securities, PSU bonds, and corporate bonds for stable, tax-efficient
+            income.</p>
+          <ul class="svc-features">
+            <li>G-Secs & T-Bills</li>
+            <li>Corporate & PSU bonds</li>
+            <li>Tax-free bond options</li>
+            <li>Regular interest payouts</li>
+          </ul>
+          <a href="contact.html" class="svc-link">Get Started →</a>
+        </div>
+        <div class="svc-card">
+          <div class="svc-icon">📊</div>
+          <h3>Portfolio Management (PMS)</h3>
+          <p class="svc-desc">Let our SEBI-registered portfolio managers handle your wealth with a minimum investment of
+            ₹50 lakhs.</p>
+          <ul class="svc-features">
+            <li>SEBI-registered PMS</li>
+            <li>Personalized strategy</li>
+            <li>Minimum ₹50 Lakhs</li>
+            <li>Monthly performance reports</li>
+          </ul>
+          <a href="contact.html" class="svc-link">Get Started →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="process-bg">
+    <div class="wrap">
+      <div class="text-center fade-up">
+        <span class="section-tag">How It Works</span>
+        <h2 class="section-title">Start Investing in 4 Simple Steps</h2>
+        <p class="section-sub">From account opening to your first investment — we make it effortless.</p>
+      </div>
+      <div class="process-steps fade-up">
+        <div class="process-step">
+          <div class="ps-num">1</div>
+          <h4>Register Online</h4>
+          <p>Fill a quick form with your name, mobile & email. Takes less than 2 minutes.</p>
+        </div>
+        <div class="process-step">
+          <div class="ps-num">2</div>
+          <h4>Complete KYC</h4>
+          <p>Upload PAN, Aadhaar & bank details. Fully digital — no paperwork needed.</p>
+        </div>
+        <div class="process-step">
+          <div class="ps-num">3</div>
+          <h4>Fund Your Account</h4>
+          <p>Add funds via UPI, NEFT, or IMPS. Minimum ₹500 to start investing.</p>
+        </div>
+        <div class="process-step">
+          <div class="ps-num">4</div>
+          <h4>Start Investing</h4>
+          <p>Choose from stocks, MF, SIP, bonds & more. Your advisor guides you every step.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section style="background:var(--light)">
+    <div class="wrap">
+      <div class="text-center fade-up">
+        <span class="section-tag">Plans & Pricing</span>
+        <h2 class="section-title">Simple, Transparent Pricing</h2>
+        <p class="section-sub">No hidden charges. No surprises. Choose the plan that fits your investment style.</p>
+      </div>
+      <div class="pricing-grid fade-up">
+        <div class="price-card">
+          <h3>Starter</h3>
+          <p style="font-size:14px;color:var(--gray)">Perfect for first-time investors</p>
+          <div class="price">₹0</div>
+          <div class="price-label">Account Opening + First Year Free</div>
+          <ul>
+            <li class="yes">Stocks & Equity trading</li>
+            <li class="yes">Mutual Fund investments</li>
+            <li class="yes">SIP automation</li>
+            <li class="yes">Basic research reports</li>
+            <li class="no">F&O trading</li>
+            <li class="no">Dedicated advisor</li>
+            <li class="no">PMS access</li>
+          </ul>
+          <a href="contact.html" class="btn-outline" style="width:100%;text-align:center;display:block">Get Started</a>
+        </div>
+        <div class="price-card popular">
+          <div class="pop-badge">⭐ Most Popular</div>
+          <h3>Growth</h3>
+          <p style="font-size:14px;color:var(--gray)">For active investors</p>
+          <div class="price">₹999</div>
+          <div class="price-label">per year — All inclusive</div>
+          <ul>
+            <li class="yes">Everything in Starter</li>
+            <li class="yes">F&O trading access</li>
+            <li class="yes">US Stocks & Commodities</li>
+            <li class="yes">Premium research reports</li>
+            <li class="yes">Daily trade calls</li>
+            <li class="yes">Dedicated advisor (call)</li>
+            <li class="no">PMS access</li>
+          </ul>
+          <a href="contact.html" class="btn-primary" style="width:100%;text-align:center;display:block">Get Started</a>
+        </div>
+        <div class="price-card">
+          <h3>Wealth</h3>
+          <p style="font-size:14px;color:var(--gray)">For HNI & serious investors</p>
+          <div class="price">₹4999</div>
+          <div class="price-label">per year — Premium</div>
+          <ul>
+            <li class="yes">Everything in Growth</li>
+            <li class="yes">Portfolio Management (PMS)</li>
+            <li class="yes">Priority advisor (WhatsApp)</li>
+            <li class="yes">Custom investment strategy</li>
+            <li class="yes">Monthly portfolio review</li>
+            <li class="yes">Tax optimization advisory</li>
+            <li class="yes">Bonds & IPO priority</li>
+          </ul>
+          <a href="contact.html" class="btn-gold" style="width:100%;text-align:center;display:block">Get Started</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="cta-strip fade-up">
+    <h2>Not Sure Where to Start?</h2>
+    <p>Talk to our expert advisors for free — we'll help you find the right investment plan.</p>
+    <a href="contact.html" class="btn-white">Book Free Consultation →</a>
+  </div>
+
+  <footer></footer>
+  <script src="shared.js"></script>
+  <script>
+    // Filter tabs (visual only)
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+      });
+    });
+  </script>
+</body>
+
+</html>

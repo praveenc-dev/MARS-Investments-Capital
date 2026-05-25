@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Contact Us | Mars Investments Capital</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Contact Grid */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 60px;
+      align-items: start;
+    }
+
+    /* Info Side */
+    .contact-info-card {
+      background: linear-gradient(135deg, var(--dark) 0%, var(--dark2) 100%);
+      border-radius: 24px;
+      padding: 40px;
+      color: white;
+      position: sticky;
+      top: 90px;
+    }
+
+    .contact-info-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+
+    .contact-info-card>p {
+      font-size: 14px;
+      color: rgba(255, 255, 255, .65);
+      line-height: 1.7;
+      margin-bottom: 32px;
+    }
+
+    .ci-items {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .ci-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .ci-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: rgba(0, 184, 169, .15);
+      color: var(--teal);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      flex-shrink: 0;
+    }
+
+    .ci-item h4 {
+      font-size: 14px;
+      font-weight: 600;
+      color: rgba(255, 255, 255, .5);
+      margin-bottom: 4px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .ci-item p,
+    .ci-item a {
+      font-size: 15px;
+      color: var(--white);
+      line-height: 1.6;
+      font-weight: 500;
+    }
+
+    .ci-item a {
+      text-decoration: none;
+      transition: color .2s;
+    }
+
+    .ci-item a:hover {
+      color: var(--teal);
+    }
+
+    .ci-divider {
+      border: none;
+      border-top: 1px solid rgba(255, 255, 255, .1);
+      margin: 28px 0;
+    }
+
+    .ci-social {
+      display: flex;
+      gap: 12px;
+    }
+
+    .ci-social a {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, .08);
+      color: white;
+      font-size: 14px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all .2s;
+    }
+
+    .ci-social a:hover {
+      background: var(--teal);
+    }
+
+    /* Form Side */
+    .contact-form-wrap {
+      background: var(--white);
+      border-radius: 24px;
+      padding: 44px;
+      border: 1.5px solid var(--border);
+      box-shadow: 0 8px 40px rgba(0, 0, 0, .06);
+    }
+
+    .cf-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 6px;
+    }
+
+    .cf-sub {
+      font-size: 15px;
+      color: var(--gray);
+      margin-bottom: 32px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+      margin-bottom: 18px;
+    }
+
+    .form-group label {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--dark);
+      letter-spacing: .3px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      padding: 13px 16px;
+      border: 1.5px solid var(--border);
+      border-radius: 10px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      color: var(--dark);
+      outline: none;
+      transition: all .25s;
+      background: var(--white);
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--teal);
+      box-shadow: 0 0 0 3px rgba(0, 184, 169, .1);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .form-group select {
+      cursor: pointer;
+    }
+
+    .form-check {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 24px;
+    }
+
+    .form-check input {
+      width: 16px;
+      height: 16px;
+      margin-top: 2px;
+      accent-color: var(--teal);
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+
+    .form-check label {
+      font-size: 13px;
+      color: var(--gray);
+      line-height: 1.5;
+    }
+
+    .form-check a {
+      color: var(--teal);
+    }
+
+    .submit-btn {
+      width: 100%;
+      padding: 15px;
+      background: var(--teal);
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all .3s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .submit-btn:hover {
+      background: var(--teal-dark);
+      transform: translateY(-1px);
+      box-shadow: 0 8px 25px rgba(0, 184, 169, .35);
+    }
+
+    .success-msg {
+      display: none;
+      background: #ECFDF5;
+      border: 1.5px solid #6EE7B7;
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .success-msg h4 {
+      color: #059669;
+      font-size: 17px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .success-msg p {
+      color: #065F46;
+      font-size: 14px;
+    }
+
+    /* Map */
+    .map-section {
+      background: var(--light);
+    }
+
+    .map-wrapper {
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, .1);
+      height: 420px;
+    }
+
+    .map-wrapper iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    /* Branches */
+    .branches-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .branch-card {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 22px 18px;
+      border: 1.5px solid var(--border);
+      transition: all .3s;
+    }
+
+    .branch-card:hover {
+      border-color: var(--teal);
+      box-shadow: 0 6px 20px rgba(0, 184, 169, .1);
+    }
+
+    .branch-card .bc-city {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 6px;
+      color: var(--dark);
+    }
+
+    .branch-card .bc-addr {
+      font-size: 13px;
+      color: var(--gray);
+      line-height: 1.6;
+      margin-bottom: 10px;
+    }
+
+    .branch-card .bc-ph {
+      font-size: 13px;
+      color: var(--teal);
+      font-weight: 600;
+    }
+
+    /* FAQ */
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .faq-item {
+      background: var(--white);
+      border-radius: 14px;
+      border: 1.5px solid var(--border);
+      overflow: hidden;
+      transition: border-color .3s;
+    }
+
+    .faq-item.open {
+      border-color: var(--teal);
+    }
+
+    .faq-q {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 22px;
+      cursor: pointer;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--dark);
+    }
+
+    .faq-arrow {
+      font-size: 20px;
+      color: var(--teal);
+      transition: transform .3s;
+      flex-shrink: 0;
+    }
+
+    .faq-item.open .faq-arrow {
+      transform: rotate(45deg);
+    }
+
+    .faq-a {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .4s ease, padding .3s;
+    }
+
+    .faq-item.open .faq-a {
+      max-height: 300px;
+    }
+
+    .faq-a p {
+      padding: 0 22px 20px;
+      font-size: 14px;
+      color: var(--gray);
+      line-height: 1.75;
+    }
+
+    @media(max-width:1024px) {
+      .branches-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media(max-width:768px) {
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-info-card {
+        position: static;
+      }
+
+      .branches-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media(max-width:480px) {
+      .branches-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <nav></nav>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <p class="ph-tag">Get in Touch</p>
+    <h1>Contact <span>Mars Investments</span></h1>
+    <p>Have questions? Our expert advisors are here to help you start your investment journey today.</p>
+    <div class="breadcrumb"><a href="index.html">Home</a><span>/</span><span>Contact</span></div>
+  </div>
+
+  <!-- CONTACT MAIN -->
+  <section>
+    <div class="wrap">
+      <div class="contact-grid">
+        <!-- Info -->
+        <div class="fade-up">
+          <div class="contact-info-card">
+            <h3>Let's Talk Investments</h3>
+            <p>Our SEBI-certified advisors are available 6 days a week to answer your questions and guide your
+              investment decisions.</p>
+            <div class="ci-items">
+              <div class="ci-item">
+                <div class="ci-icon">📞</div>
+                <div>
+                  <h4>Phone</h4>
+                  <a href="tel:+919000000000">+91 90000 00000</a><br>
+                  <a href="tel:+914400000000">+91 44-0000 0000</a>
+                </div>
+              </div>
+              <div class="ci-item">
+                <div class="ci-icon">📧</div>
+                <div>
+                  <h4>Email</h4>
+                  <a href="mailto:info@marsinvestments.in">info@marsinvestments.in</a><br>
+                  <a href="mailto:support@marsinvestments.in">support@marsinvestments.in</a>
+                </div>
+              </div>
+              <div class="ci-item">
+                <div class="ci-icon">📍</div>
+                <div>
+                  <h4>Head Office</h4>
+                  <p>No. 10, Anna Salai, Triplicane,<br>Chennai — 600 005, Tamil Nadu</p>
+                </div>
+              </div>
+              <div class="ci-item">
+                <div class="ci-icon">🕐</div>
+                <div>
+                  <h4>Business Hours</h4>
+                  <p>Mon – Sat: 9:00 AM – 6:00 PM<br>Sunday: Closed</p>
+                </div>
+              </div>
+            </div>
+            <hr class="ci-divider">
+            <p style="font-size:13px;color:rgba(255,255,255,.5);margin-bottom:14px;">Follow us on social media</p>
+            <div class="ci-social">
+              <a href="#" title="Twitter">𝕏</a>
+              <a href="#" title="LinkedIn">in</a>
+              <a href="#" title="Facebook">f</a>
+              <a href="#" title="YouTube">▶</a>
+              <a href="#" title="Instagram">📸</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Form -->
+        <div class="fade-up">
+          <div class="contact-form-wrap">
+            <h2 class="cf-title">Open Your Free Account</h2>
+            <p class="cf-sub">Fill the form below — our advisor will call you within 24 hours.</p>
+            <div class="form-row">
+              <div class="form-group"><label>First Name *</label><input type="text" id="fname"
+                  placeholder="Enter first name" /></div>
+              <div class="form-group"><label>Last Name *</label><input type="text" id="lname"
+                  placeholder="Enter last name" /></div>
+            </div>
+            <div class="form-row">
+              <div class="form-group"><label>Mobile Number *</label><input type="tel" id="phone"
+                  placeholder="+91 XXXXX XXXXX" /></div>
+              <div class="form-group"><label>Email Address</label><input type="email" id="email"
+                  placeholder="you@email.com" /></div>
+            </div>
+            <div class="form-group">
+              <label>City *</label>
+              <input type="text" id="city" placeholder="Your city" />
+            </div>
+            <div class="form-group">
+              <label>I'm Interested In</label>
+              <select id="interest">
+                <option value="">-- Select Investment Type --</option>
+                <option>Stocks & Equity</option>
+                <option>Mutual Funds & SIP</option>
+                <option>Futures & Options</option>
+                <option>US Stocks</option>
+                <option>IPO Applications</option>
+                <option>Fixed Deposits & Bonds</option>
+                <option>Portfolio Management (PMS)</option>
+                <option>General Investment Advisory</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Message (Optional)</label>
+              <textarea id="message"
+                placeholder="Tell us about your investment goals or any questions you have..."></textarea>
+            </div>
+            <div class="form-check">
+              <input type="checkbox" id="agree" />
+              <label for="agree">I agree to the <a href="#">Terms of Use</a> and <a href="#">Privacy Policy</a>. I
+                consent to be contacted by a Mars Investments advisor.</label>
+            </div>
+            <button class="submit-btn" onclick="submitForm()">📩 Submit & Get a Free Call Back</button>
+            <div class="success-msg" id="successMsg">
+              <h4>🎉 Thank You! We've received your request.</h4>
+              <p>Our advisor will call you within 24 hours. Meanwhile, follow us on social media for daily investment
+                tips!</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BRANCHES -->
+  <section style="background:var(--light)">
+    <div class="wrap">
+      <div class="text-center fade-up">
+        <span class="section-tag">Our Presence</span>
+        <h2 class="section-title">500+ Branches Across India</h2>
+        <p class="section-sub">Walk into any of our branches for in-person investment guidance from our certified
+          advisors.</p>
+      </div>
+      <div class="branches-grid fade-up">
+        <div class="branch-card">
+          <div class="bc-city">🏙️ Chennai</div>
+          <div class="bc-addr">No. 10, Anna Salai, Triplicane, Chennai – 600 005</div>
+          <div class="bc-ph">+91 44-0000 0001</div>
+        </div>
+        <div class="branch-card">
+          <div class="bc-city">🏙️ Coimbatore</div>
+          <div class="bc-addr">42, Avinashi Road, Peelamedu, Coimbatore – 641 004</div>
+          <div class="bc-ph">+91 422-000 0001</div>
+        </div>
+        <div class="branch-card">
+          <div class="bc-city">🏙️ Bangalore</div>
+          <div class="bc-addr">15, MG Road, Shivajinagar, Bangalore – 560 001</div>
+          <div class="bc-ph">+91 80-0000 0001</div>
+        </div>
+        <div class="branch-card">
+          <div class="bc-city">🏙️ Hyderabad</div>
+          <div class="bc-addr">8-2-293, Road No. 78, Jubilee Hills, Hyderabad – 500 033</div>
+          <div class="bc-ph">+91 40-0000 0001</div>
+        </div>
+        <div class="branch-card">
+          <div class="bc-city">🏙️ Mumbai</div>
+          <div class="bc-addr">302, Nariman Point, Fort, Mumbai – 400 021</div>
+          <div class="bc-ph">+91 22-0000 0001</div>
+        </div>
+        <div class="branch-card">
+          <div class="bc-city">🏙️ Delhi NCR</div>
+          <div class="bc-addr">12, Connaught Place, New Delhi – 110 001</div>
+          <div class="bc-ph">+91 11-0000 0001</div>
+        </div>
+        <div class="branch-card">
+          <div class="bc-city">🏙️ Madurai</div>
+          <div class="bc-addr">23, Sivaganga Road, Narimedu, Madurai – 625 002</div>
+          <div class="bc-ph">+91 452-000 0001</div>
+        </div>
+        <div class="branch-card">
+          <div class="bc-city">🏙️ Pune</div>
+          <div class="bc-addr">FC Road, Shivajinagar, Pune – 411 005</div>
+          <div class="bc-ph">+91 20-0000 0001</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAP -->
+  <section class="map-section">
+    <div class="wrap">
+      <div class="text-center fade-up" style="margin-bottom:32px;">
+        <span class="section-tag">Find Us</span>
+        <h2 class="section-title">Head Office — Chennai</h2>
+      </div>
+      <div class="map-wrapper fade-up">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d62207.4428309327!2d80.22090865!3d13.060421599999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5265ea4f7d3361%3A0x6e61a70b6863d433!2sChennai%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1695000000000!5m2!1sen!2sin"
+          loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section>
+    <div class="wrap">
+      <div class="text-center fade-up">
+        <span class="section-tag">FAQ</span>
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <p class="section-sub">Quick answers to questions we hear most from new investors.</p>
+      </div>
+      <div class="faq-list fade-up">
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)"><span>Is my money safe with Mars Investments?</span><span
+              class="faq-arrow">+</span></div>
+          <div class="faq-a">
+            <p>Yes, absolutely. Mars Investments Capital is a SEBI-registered Investment Advisor. Your funds are held in
+              your own demat account linked to NSE/BSE — we never hold client money directly. Your investments are
+              protected under SEBI and CDSL/NSDL regulations.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)"><span>What is the minimum investment amount to get
+              started?</span><span class="faq-arrow">+</span></div>
+          <div class="faq-a">
+            <p>You can start investing in mutual funds with as little as ₹500 per month via SIP. For equity trading,
+              there's no minimum — you can buy even 1 share. Fixed deposits and bonds start at ₹1,000. PMS requires a
+              minimum investment of ₹50 lakhs.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)"><span>Are there any hidden charges or fees?</span><span
+              class="faq-arrow">+</span></div>
+          <div class="faq-a">
+            <p>No hidden fees — ever. Account opening is free. Brokerage for the first 30 days is zero. After that, our
+              transaction fees are some of the lowest in the industry, clearly listed on our pricing page. We believe in
+              100% transparent pricing.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)"><span>How long does it take to open an account?</span><span
+              class="faq-arrow">+</span></div>
+          <div class="faq-a">
+            <p>Account opening is completely digital and takes 10-15 minutes. You'll need your PAN card, Aadhaar card,
+              and bank account details. Once submitted, your account is typically activated within 24-48 hours.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)"><span>Can I talk to a human advisor instead of using the
+              app?</span><span class="faq-arrow">+</span></div>
+          <div class="faq-a">
+            <p>Absolutely! Every client gets access to a dedicated human advisor you can call or WhatsApp during
+              business hours (Mon-Sat, 9am-6pm). Growth and Wealth plan subscribers get priority access with faster
+              response times.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)"><span>How do I withdraw my money when I need it?</span><span
+              class="faq-arrow">+</span></div>
+          <div class="faq-a">
+            <p>Withdrawing funds is simple. For equity, funds are credited to your bank account within T+1 trading day.
+              For mutual funds, redemption takes 1-3 working days depending on the fund type. FD withdrawals depend on
+              the tenure chosen.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="cta-strip fade-up">
+    <h2>Have More Questions? Let's Talk!</h2>
+    <p>Call us at <strong>+91 90000 00000</strong> or WhatsApp us — Mon to Sat, 9am to 6pm.</p>
+    <a href="https://wa.me/919000000000" target="_blank" class="btn-white">💬 WhatsApp Us Now</a>
+    <a href="tel:+919000000000" class="btn-outline-white">📞 Call Us</a>
+  </div>
+
+  <footer></footer>
+  <script src="shared.js"></script>
+  <script>
+    function submitForm() {
+      const fname = document.getElementById('fname').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const agree = document.getElementById('agree').checked;
+      const city = document.getElementById('city').value.trim();
+      if (!fname) { alert('Please enter your first name.'); return; }
+      if (!phone) { alert('Please enter your mobile number.'); return; }
+      if (!city) { alert('Please enter your city.'); return; }
+      if (!agree) { alert('Please agree to the Terms of Use and Privacy Policy.'); return; }
+      document.getElementById('successMsg').style.display = 'block';
+      document.querySelector('.submit-btn').disabled = true;
+      document.querySelector('.submit-btn').textContent = '✓ Submitted Successfully!';
+      document.querySelector('.submit-btn').style.background = '#059669';
+      document.getElementById('successMsg').scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+    function toggleFaq(el) {
+      const item = el.parentElement;
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(f => f.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    }
+  </script>
+</body>
+
+</html>
