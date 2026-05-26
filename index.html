@@ -657,15 +657,24 @@
         <div class="stat-chip"><span class="num">15+</span><span class="label">Years Experience</span></div>
         <div class="stat-chip"><span class="num">500+</span><span class="label">Branches</span></div>
       </div>
+
+      <!-- HERO FORM -->
       <div class="hero-form">
-        <input type="text" id="heroName" placeholder="Your Name" />
-        <input type="tel" id="heroPhone" placeholder="Mobile Number" />
-        <button class="btn-gold" onclick="heroSubmit()">GET STARTED →</button>
+
+        <input type="text" id="heroName" placeholder="Your Name" required />
+
+        <input type="tel" id="heroPhone" placeholder="Mobile Number" required />
+
+        <button class="btn-gold" onclick="heroSubmit()">
+          GET STARTED →
+        </button>
+
       </div>
     </div>
     <div class="hero-right fade-up">
       <div class="hero-card-stack">
-        <div class="market-card">
+        <img src="./images/banner1.jpeg" alt="banner" /> 
+        <!-- <div class="market-card">
           <h3>📈 Live Market Overview</h3>
           <div class="market-rows">
             <div class="market-row">
@@ -701,7 +710,7 @@
           <div class="mc-l">Portfolio Today</div>
           <div class="mc-v">₹4,28,160</div>
           <div class="mc-s">▲ +₹12,340 (+2.97%)</div>
-        </div>
+        </div> -->
       </div>
     </div>
   </section>
@@ -1164,5 +1173,78 @@
     }
   </script>
 </body>
+
+
+<script>
+
+  function heroSubmit() {
+
+    const name = document.getElementById("heroName").value;
+    const phone = document.getElementById("heroPhone").value;
+
+    // ✅ Validation
+    if (name === "" || phone === "") {
+
+      alert("Please fill all fields");
+
+      return;
+
+    }
+
+    // ✅ Form Data
+    const formData = new FormData();
+
+    formData.append("name", name);
+    formData.append("phone", phone);
+    formData.append("_captcha", "false");
+    formData.append("_subject", "New Hero Section Enquiry");
+
+    // ✅ WhatsApp Message
+    const message =
+      `New Hero Section Enquiry
+
+Name: ${name}
+Phone: ${phone}`;
+
+    // ✅ WhatsApp Open
+    window.open(
+      `https://wa.me/919943910452?text=${encodeURIComponent(message)}`,
+      "_blank"
+    );
+
+    // ✅ AJAX Mail Send
+    fetch("https://formsubmit.co/ajax/rekhachandran75@gmail.com", {
+
+      method: "POST",
+
+      headers: {
+        "Accept": "application/json"
+      },
+
+      body: formData
+
+    })
+
+      .then(response => response.json())
+
+      .then(data => {
+
+        document.getElementById("heroSuccess").style.display = "block";
+
+        // ✅ Reset
+        document.getElementById("heroName").value = "";
+        document.getElementById("heroPhone").value = "";
+
+      })
+
+      .catch(error => {
+
+        alert("Something went wrong!");
+
+      });
+
+  }
+
+</script>
 
 </html>

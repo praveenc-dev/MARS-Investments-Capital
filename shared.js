@@ -6,7 +6,7 @@ const NAV_HTML = `
 <div class="nav-container">
   <a class="nav-logo" href="index.html">
     <div class="logo-img-wrap">
-      <img src="logo.jpeg" alt="Mars Investments Capital Logo">
+      <img src="/images/logo1.jpeg" alt="Mars Investments Capital Logo">
     </div>
     <div class="logo-text">
       <span class="brand">MARS</span>
@@ -35,7 +35,7 @@ const FOOTER_HTML = `
 <div class="footer-grid">
   <div class="footer-brand">
     <div class="fbrand-logo">
-      <div class="logo-img-wrap"><img src="logo.jpeg" alt="Mars Investments Capital"></div>
+      <div class="logo-img-wrap"><img src="/images/logo1.jpeg" alt="Mars Investments Capital"></div>
       <div class="logo-text">
         <span class="brand" style="color:#fff">MARS</span>
         <span class="sub">Investments Capital</span>
@@ -97,7 +97,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Inject WhatsApp button
   const wa = document.createElement('a');
-  wa.className = 'wa-btn'; wa.href = 'https://wa.me/919XXXXXXXXX'; wa.target = '_blank'; wa.title = 'Chat on WhatsApp'; wa.innerHTML = '💬';
+  wa.className = 'wa-btn'; wa.href = 'https://wa.me/917200300672'; wa.target = '_blank'; wa.title = 'Chat on WhatsApp'; wa.innerHTML = '💬';
   document.body.appendChild(wa);
 
   // Active nav link
