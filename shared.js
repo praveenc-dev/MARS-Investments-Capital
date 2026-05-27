@@ -43,9 +43,9 @@ const FOOTER_HTML = `
     </div>
     <p>Your trusted partner for smarter investing. SEBI Registered. Transparent. Committed to your financial growth since 2009.</p>
     <div class="footer-social">
-      <a class="social-btn" href="#" title="Twitter">𝕏</a>
-      <a class="social-btn" href="#" title="LinkedIn">in</a>
-      <a class="social-btn" href="#" title="Facebook">f</a>
+      <a class="social-btn" href="https://twitter.com/MarsInvestments" target="_blank" title="Twitter">𝕏</a>
+      <a class="social-btn" href="https://www.linkedin.com/company/mars-investments" target="_blank" title="LinkedIn">in</a>
+      <a class="social-btn" href="https://www.facebook.com/share/19NH35e4fU/" target="_blank" title="Facebook">f</a>
       <a class="social-btn" href="https://www.youtube.com/channel/UCsYLdJogtW-DSp2kdtG-TNw" target="_blank" title="YouTube">▶</a>
     </div>
   </div>
