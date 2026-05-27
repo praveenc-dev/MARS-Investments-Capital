@@ -154,7 +154,7 @@
 
     .hero-card-stack {
       width: 100%;
-      max-width: 420px;
+      max-width: 600px;
       position: relative;
     }
 
@@ -649,6 +649,7 @@
   <section class="hero">
     <div class="hero-left fade-up">
       <div class="hero-badge"><span></span> SEBI Registered Investment Advisor</div>
+      <div class="hero-badge"><span></span> AMFI Registered Mutual Funds Distributor</div>
       <h1>Think <span class="accent">Smart.</span><br>Think <span class="gold-t">Mars</span><br>Investments.</h1>
       <p class="hero-sub">India's trusted investment partner — empowering retail investors with smart tools, expert
         research, and zero hidden fees.</p>
@@ -657,6 +658,8 @@
         <div class="stat-chip"><span class="num">15+</span><span class="label">Years Experience</span></div>
         <div class="stat-chip"><span class="num">500+</span><span class="label">Branches</span></div>
       </div>
+
+      <div class="hero-badge"><span></span>Our Mission Your Growth Be A Step Ahead In Life</div>
 
       <!-- HERO FORM -->
       <div class="hero-form">
@@ -673,7 +676,35 @@
     </div>
     <div class="hero-right fade-up">
       <div class="hero-card-stack">
-        <img src="./images/banner1.jpeg" alt="banner" /> 
+        <!-- <img src="./images/banner1.jpeg" alt="banner" /> -->
+
+        <div class="swiper testi-swiper fade-up">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <img src="./images/5 APRIL 2026_page-0001.jpg.jpeg" alt="banner" />
+
+            </div>
+            <div class="swiper-slide">
+              <img src="./images/3 FEBRUARY 2026-images-0.jpg.jpeg" alt="banner" />
+
+            </div>
+            <div class="swiper-slide">
+              <img src="./images/4 MARCH 2026_page-0016.jpg.jpeg" alt="banner" />
+
+            </div>
+            <div class="swiper-slide">
+              <img src="./images/5 APRIL 2026_page-0014.jpg.jpeg" alt="banner" />
+
+            </div>
+            <div class="swiper-slide">
+              <img src="./images/5 APRIL 2026_page-0025.jpg.jpeg" alt="banner" />
+
+            </div>
+          </div>
+          <div class="swiper-pagination"></div>
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
+        </div>
         <!-- <div class="market-card">
           <h3>📈 Live Market Overview</h3>
           <div class="market-rows">
@@ -768,13 +799,13 @@
         <a class="product-card" href="services.html">
           <div class="prod-icon">📈</div>
           <h3>Equity / Stocks</h3>
-          <p>Buy & sell NSE/BSE shares with real-time analytics</p>
+
           <div class="prod-arrow">→</div>
         </a>
         <a class="product-card" href="services.html">
           <div class="prod-icon">⚡</div>
           <h3>Futures & Options</h3>
-          <p>Trade F&O contracts with expert guidance</p>
+
           <div class="prod-arrow">→</div>
         </a>
         <!-- <a class="product-card" href="services.html">
@@ -786,45 +817,48 @@
         <a class="product-card" href="services.html">
           <div class="prod-icon">💰</div>
           <h3>Mutual Funds</h3>
-          <p>SIP & lumpsum investments across top AMCs</p>
+
           <div class="prod-arrow">→</div>
         </a>
         <a class="product-card" href="services.html">
           <div class="prod-icon">🌾</div>
           <h3>Commodities</h3>
-          <p>Trade Gold, Silver, Crude Oil & agri commodities</p>
+
           <div class="prod-arrow">→</div>
         </a>
         <a class="product-card" href="services.html">
           <div class="prod-icon">📋</div>
           <h3>IPO</h3>
-          <p>Apply to Initial Public Offerings with 1-click</p>
+
           <div class="prod-arrow">→</div>
         </a>
-        <!-- <a class="product-card" href="services.html">
-          <div class="prod-icon">🏦</div>
-          <h3>Fixed Deposits</h3>
-          <p>Safe, guaranteed returns from top-rated banks</p>
-          <div class="prod-arrow">→</div>
-        </a> -->
+
         <a class="product-card" href="services.html">
           <div class="prod-icon">📊</div>
           <h3>Portfolio Management</h3>
-          <p>Expert-managed portfolios tailored to your goals</p>
+
           <div class="prod-arrow">→</div>
         </a>
-        <!-- <a class="product-card" href="services.html">
-          <div class="prod-icon">📜</div>
-          <h3>Bonds</h3>
-          <p>Government & corporate bonds for steady income</p>
-          <div class="prod-arrow">→</div>
-        </a> -->
+
         <a class="product-card" href="services.html">
           <div class="prod-icon">🤖</div>
           <h3>Smart Advisory</h3>
-          <p>AI-powered portfolio recommendations for you</p>
+
           <div class="prod-arrow">→</div>
         </a>
+
+        <a class="product-card" href="services.html">
+          <div class="prod-icon">🛡️</div>
+          <h3>Insurance</h3>
+          <div class="prod-arrow">→</div>
+        </a>
+
+        <a class="product-card" href="services.html">
+          <div class="prod-icon">❤️</div>
+          <h3>Health Insurance</h3>
+          <div class="prod-arrow">→</div>
+        </a>
+        
       </div>
     </div>
   </section>
@@ -1152,7 +1186,7 @@
       autoplay: { delay: 4500, disableOnInteraction: false },
       pagination: { el: '.swiper-pagination', clickable: true },
       navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
-      breakpoints: { 640: { slidesPerView: 2 }, 1024: { slidesPerView: 3 } }
+      breakpoints: { 640: { slidesPerView: 2 }, 1024: { slidesPerView: 1 } }
     });
 
     // Hero form

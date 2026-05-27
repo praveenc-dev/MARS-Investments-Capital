@@ -26,7 +26,7 @@
     }
 
     .contact-info-card h3 {
-      font-family: 'Playfair Display', serif;
+      /* font-family: 'Playfair Display', serif; */
       font-size: 26px;
       font-weight: 700;
       color: var(--gold);
@@ -130,7 +130,7 @@
     }
 
     .cf-title {
-      font-family: 'Playfair Display', serif;
+      /* font-family: 'Playfair Display', serif; */
       font-size: 28px;
       font-weight: 700;
       color: var(--dark);
@@ -413,6 +413,523 @@
       }
     }
   </style>
+
+
+  <style>
+    .calc-section {
+      background: linear-gradient(135deg, #EEF2FF 0%, #E0F7F5 60%, #FFF8E6 100%);
+      padding: 90px 5%;
+    }
+
+    .calc-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      gap: 64px;
+      align-items: center;
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    /* LEFT */
+    .calc-icon-wrap {
+      margin-bottom: 20px;
+    }
+
+    .calc-heading {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(28px, 3.5vw, 44px);
+      font-weight: 800;
+      color: #0D1B2A;
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+
+    .calc-heading span {
+      color: #00B8A9;
+    }
+
+    .calc-desc {
+      font-size: 16px;
+      color: #64748B;
+      line-height: 1.75;
+      margin-bottom: 28px;
+      max-width: 400px;
+    }
+
+    .calc-trust {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+
+    .ct-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      color: #1E2D40;
+      font-weight: 500;
+    }
+
+    .ct-icon {
+      font-size: 18px;
+    }
+
+    .calc-disclaimer {
+      font-size: 11px;
+      color: #94A3B8;
+      line-height: 1.6;
+      max-width: 360px;
+    }
+
+    /* CARD */
+    .calc-card {
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 36px 32px;
+      box-shadow: 0 24px 80px rgba(0, 0, 0, 0.1);
+      border: 1.5px solid rgba(0, 184, 169, 0.12);
+    }
+
+    /* Fund Search */
+    .cc-label {
+      font-size: 12px;
+      color: #94A3B8;
+      font-weight: 500;
+      margin-bottom: 6px;
+      display: block;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .fund-search-wrap {
+      position: relative;
+    }
+
+    .fund-input {
+      width: 100%;
+      border: none;
+      border-bottom: 2px solid #E2EAF0;
+      padding: 10px 36px 10px 0;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 17px;
+      font-weight: 600;
+      color: #0D1B2A;
+      outline: none;
+      background: transparent;
+      transition: border-color 0.2s;
+    }
+
+    .fund-input:focus {
+      border-color: #00B8A9;
+    }
+
+    .fund-clear {
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      font-size: 18px;
+      color: #94A3B8;
+      cursor: pointer;
+    }
+
+    .fund-dropdown {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      z-index: 50;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, .12);
+      border: 1.5px solid #E2EAF0;
+      display: none;
+      max-height: 220px;
+      overflow-y: auto;
+    }
+
+    .fund-dropdown.visible {
+      display: block;
+    }
+
+    .fund-opt {
+      padding: 12px 16px;
+      cursor: pointer;
+      font-size: 14px;
+      color: #1E2D40;
+      transition: background 0.15s;
+      border-bottom: 1px solid #F1F5F9;
+    }
+
+    .fund-opt:hover {
+      background: #E0F7F5;
+      color: #00B8A9;
+    }
+
+    .fund-opt:last-child {
+      border-bottom: none;
+    }
+
+    .fund-selected {
+      margin-top: 8px;
+      background: #E0F7F5;
+      border-radius: 8px;
+      padding: 8px 12px;
+      font-size: 13px;
+      color: #009688;
+      font-weight: 600;
+    }
+
+    .cc-field {
+      margin-bottom: 24px;
+    }
+
+    /* Toggle Pill */
+    .cc-toggle-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .toggle-pill {
+      padding: 8px 22px;
+      border-radius: 50px;
+      border: 1.5px solid #E2EAF0;
+      background: #fff;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.25s;
+      color: #64748B;
+    }
+
+    .toggle-pill.active {
+      background: #0D1B2A;
+      color: #fff;
+      border-color: #0D1B2A;
+    }
+
+    .ml-auto {
+      margin-left: auto;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .plan-label {
+      font-size: 13px;
+      color: #0D1B2A;
+      font-weight: 500;
+    }
+
+    /* Switch */
+    .switch {
+      position: relative;
+      width: 42px;
+      height: 24px;
+    }
+
+    .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .slider-round {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: #00B8A9;
+      border-radius: 34px;
+      transition: 0.3s;
+    }
+
+    .slider-round::before {
+      content: "";
+      position: absolute;
+      height: 18px;
+      width: 18px;
+      left: 3px;
+      bottom: 3px;
+      background: white;
+      border-radius: 50%;
+      transition: 0.3s;
+    }
+
+    .switch input:checked+.slider-round::before {
+      transform: translateX(18px);
+    }
+
+    /* HR */
+    .cc-hr {
+      border: none;
+      border-top: 1px solid #F1F5F9;
+      margin: 16px 0 20px;
+    }
+
+    /* Amount */
+    .cc-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-bottom: 20px;
+    }
+
+    .cc-col {}
+
+    .amount-input-wrap {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      border-bottom: 2px solid #00B8A9;
+      padding: 8px 0;
+    }
+
+    .rupee {
+      font-size: 20px;
+      font-weight: 700;
+      color: #0D1B2A;
+    }
+
+    .amount-input {
+      border: none;
+      outline: none;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: #0D1B2A;
+      width: 100%;
+      background: transparent;
+    }
+
+    .amount-input::-webkit-outer-spin-button,
+    .amount-input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+    }
+
+    .range-slider {
+      -webkit-appearance: none;
+      width: 100%;
+      height: 4px;
+      border-radius: 4px;
+      background: #E2EAF0;
+      outline: none;
+      margin-top: 14px;
+      cursor: pointer;
+    }
+
+    .range-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: #00B8A9;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(0, 184, 169, 0.4);
+    }
+
+    /* Tenure */
+    .tenure-pills {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+
+    .tp {
+      padding: 7px 16px;
+      border-radius: 50px;
+      border: 1.5px solid #E2EAF0;
+      background: #fff;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      color: #64748B;
+    }
+
+    .tp.active {
+      background: #00B8A9;
+      color: #fff;
+      border-color: #00B8A9;
+    }
+
+    /* Results */
+    .cc-results {
+      margin-bottom: 18px;
+    }
+
+    .result-row {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-bottom: 14px;
+    }
+
+    .result-item {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      flex: 1;
+    }
+
+    .ri-label {
+      font-size: 12px;
+      color: #94A3B8;
+      font-weight: 500;
+    }
+
+    .ri-val {
+      font-size: 18px;
+      font-weight: 700;
+      color: #0D1B2A;
+    }
+
+    .ri-val.big {
+      font-size: 24px;
+      font-weight: 800;
+    }
+
+    .ri-val.profit {
+      color: #16A34A;
+    }
+
+    .ri-val.cagr {
+      color: #00B8A9;
+    }
+
+    .result-highlight {
+      background: #F7FAFB;
+      border-radius: 14px;
+      padding: 16px 20px;
+      border: 1.5px solid #E0F7F5;
+    }
+
+    .invest-btn {
+      background: #0D1B2A;
+      color: #fff;
+      border: none;
+      padding: 14px 24px;
+      border-radius: 12px;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 700;
+      font-size: 14px;
+      cursor: pointer;
+      transition: all 0.3s;
+      white-space: nowrap;
+      text-decoration: none;
+      display: inline-block;
+      align-self: center;
+    }
+
+    .invest-btn:hover {
+      background: #00B8A9;
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(0, 184, 169, .3);
+    }
+
+    /* Mini Chart */
+    .mini-chart {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      margin-bottom: 16px;
+      background: #F7FAFB;
+      border-radius: 12px;
+      padding: 14px 16px;
+    }
+
+    .mc-bar-wrap {
+      display: flex;
+      align-items: flex-end;
+      gap: 6px;
+      height: 52px;
+      flex: 1;
+    }
+
+    .mc-bar {
+      border-radius: 4px 4px 0 0;
+      transition: height 0.6s ease;
+      min-height: 6px;
+    }
+
+    .mc-bar.invested {
+      background: #00B8A9;
+      width: 50%;
+    }
+
+    .mc-bar.returns {
+      background: #F0B429;
+      width: 50%;
+    }
+
+    .mc-legend {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      font-size: 12px;
+      color: #64748B;
+    }
+
+    .mcl-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 3px;
+      display: inline-block;
+      margin-left: 8px;
+    }
+
+    .mcl-dot.inv {
+      background: #00B8A9;
+    }
+
+    .mcl-dot.ret {
+      background: #F0B429;
+    }
+
+    /* View link */
+    .view-calc-link {
+      font-size: 13px;
+      color: #00B8A9;
+      text-decoration: underline;
+      cursor: pointer;
+      display: inline-block;
+    }
+
+    @media(max-width: 1024px) {
+      .calc-layout {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+    }
+
+    @media(max-width: 600px) {
+      .cc-row {
+        grid-template-columns: 1fr;
+      }
+
+      .result-row {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .calc-card {
+        padding: 24px 18px;
+      }
+    }
+  </style>
 </head>
 
 <body>
@@ -471,11 +988,12 @@
             <hr class="ci-divider">
             <p style="font-size:13px;color:rgba(255,255,255,.5);margin-bottom:14px;">Follow us on social media</p>
             <div class="ci-social">
-              <a href="#" title="Twitter">𝕏</a>
-              <a href="#" title="LinkedIn">in</a>
-              <a href="#" title="Facebook">f</a>
-              <a href="#" title="YouTube">▶</a>
-              <a href="#" title="Instagram">📸</a>
+              <a href="https://twitter.com/MarsInvestments" target="_blank" title="Twitter">𝕏</a>
+              <a href="https://www.linkedin.com/company/mars-investments" target="_blank" title="LinkedIn">in</a>
+              <a href="https://www.facebook.com/MarsInvestments" target="_blank" title="Facebook">f</a>
+              <a href="https://www.youtube.com/channel/UCsYLdJogtW-DSp2kdtG-TNw" target="_blank" title="YouTube">▶</a>
+              <a href="https://www.instagram.com/mars_official___?igsh=a2VobWpkNWJmcGE4" target="_blank"
+                title="Instagram">📸</a>
             </div>
           </div>
         </div>
@@ -577,59 +1095,138 @@
     </div>
   </section>
 
-  <!-- BRANCHES -->
-  <section style="background:var(--light)">
+  <section class="calc-section calculator">
     <div class="wrap">
-      <div class="text-center fade-up">
-        <span class="section-tag">Our Presence</span>
-        <h2 class="section-title">500+ Branches Across India</h2>
-        <p class="section-sub">Walk into any of our branches for in-person investment guidance from our certified
-          advisors.</p>
-      </div>
-      <div class="branches-grid fade-up">
-        <div class="branch-card">
-          <div class="bc-city">🏙️ Chennai</div>
-          <div class="bc-addr">No. 10, Anna Salai, Triplicane, Chennai – 600 005</div>
-          <div class="bc-ph">+91 44-0000 0001</div>
+      <div class="calc-layout">
+
+        <!-- LEFT -->
+        <div class="calc-left fade-up">
+          <div class="calc-icon-wrap">
+            <svg width="72" height="72" viewBox="0 0 72 72" fill="none">
+              <rect x="8" y="36" width="14" height="28" rx="4" fill="#00B8A9" opacity="0.4" />
+              <rect x="29" y="22" width="14" height="42" rx="4" fill="#00B8A9" opacity="0.7" />
+              <rect x="50" y="10" width="14" height="54" rx="4" fill="#00B8A9" />
+              <path d="M10 40 L28 24 L48 14 L64 6" stroke="#F0B429" stroke-width="3" stroke-linecap="round"
+                stroke-linejoin="round" />
+              <circle cx="64" cy="6" r="4" fill="#F0B429" />
+            </svg>
+          </div>
+          <h2 class="calc-heading">Investment<br><span>Performance Calculator</span></h2>
+          <p class="calc-desc">Explore how much wealth you would have created by investing in our schemes using this SIP
+            /
+            Lumpsum Calculator.</p>
+          <div class="calc-trust">
+            <div class="ct-item"><span class="ct-icon">📈</span><span>Based on historical NAV data</span></div>
+            <div class="ct-item"><span class="ct-icon">🔒</span><span>SEBI Registered Funds</span></div>
+            <div class="ct-item"><span class="ct-icon">⚡</span><span>Instant calculation</span></div>
+          </div>
+          <p class="calc-disclaimer">*Past performance is not indicative of future results. Mutual Fund investments are
+            subject to market risks.</p>
         </div>
-        <div class="branch-card">
-          <div class="bc-city">🏙️ Coimbatore</div>
-          <div class="bc-addr">42, Avinashi Road, Peelamedu, Coimbatore – 641 004</div>
-          <div class="bc-ph">+91 422-000 0001</div>
-        </div>
-        <div class="branch-card">
-          <div class="bc-city">🏙️ Bangalore</div>
-          <div class="bc-addr">15, MG Road, Shivajinagar, Bangalore – 560 001</div>
-          <div class="bc-ph">+91 80-0000 0001</div>
-        </div>
-        <div class="branch-card">
-          <div class="bc-city">🏙️ Hyderabad</div>
-          <div class="bc-addr">8-2-293, Road No. 78, Jubilee Hills, Hyderabad – 500 033</div>
-          <div class="bc-ph">+91 40-0000 0001</div>
-        </div>
-        <div class="branch-card">
-          <div class="bc-city">🏙️ Mumbai</div>
-          <div class="bc-addr">302, Nariman Point, Fort, Mumbai – 400 021</div>
-          <div class="bc-ph">+91 22-0000 0001</div>
-        </div>
-        <div class="branch-card">
-          <div class="bc-city">🏙️ Delhi NCR</div>
-          <div class="bc-addr">12, Connaught Place, New Delhi – 110 001</div>
-          <div class="bc-ph">+91 11-0000 0001</div>
-        </div>
-        <div class="branch-card">
-          <div class="bc-city">🏙️ Madurai</div>
-          <div class="bc-addr">23, Sivaganga Road, Narimedu, Madurai – 625 002</div>
-          <div class="bc-ph">+91 452-000 0001</div>
-        </div>
-        <div class="branch-card">
-          <div class="bc-city">🏙️ Pune</div>
-          <div class="bc-addr">FC Road, Shivajinagar, Pune – 411 005</div>
-          <div class="bc-ph">+91 20-0000 0001</div>
+
+        <!-- RIGHT — CALCULATOR CARD -->
+        <div class="calc-right fade-up">
+          <div class="calc-card">
+
+            <!-- Fund Search -->
+            <div class="cc-field">
+              <label class="cc-label">Search a Fund</label>
+              <div class="fund-search-wrap">
+                <input type="text" id="fundSearch" class="fund-input" placeholder="Type fund name..." autocomplete="off"
+                  oninput="filterFunds()" onfocus="showDropdown()" />
+                <button class="fund-clear" onclick="clearFund()" id="clearBtn" style="display:none">✕</button>
+                <div class="fund-dropdown" id="fundDropdown">
+                  <!-- populated by JS -->
+                </div>
+              </div>
+              <div class="fund-selected" id="fundSelected" style="display:none"></div>
+            </div>
+
+            <!-- SIP / Lumpsum Toggle -->
+            <div class="cc-toggle-row">
+              <button class="toggle-pill active" id="btnSIP" onclick="setMode('SIP')">SIP</button>
+              <button class="toggle-pill" id="btnLump" onclick="setMode('Lumpsum')">Lumpsum</button>
+              <div class="ml-auto cc-plan-toggle">
+                <span class="plan-label" id="planLabel">Regular</span>
+                <label class="switch">
+                  <input type="checkbox" id="planToggle" onchange="togglePlan()" checked>
+                  <span class="slider-round"></span>
+                </label>
+                <span class="plan-label" id="planLabel2" style="opacity:.45">Direct</span>
+              </div>
+            </div>
+
+            <hr class="cc-hr" />
+
+            <!-- Amount Row -->
+            <div class="cc-row">
+              <div class="cc-col">
+                <label class="cc-label" id="amountLabel">Monthly SIP Amount (₹)</label>
+                <div class="amount-input-wrap">
+                  <span class="rupee">₹</span>
+                  <input type="number" id="amountInput" class="amount-input" value="10000" min="500" max="10000000"
+                    oninput="calculate()" />
+                </div>
+                <input type="range" id="amountSlider" class="range-slider" min="500" max="100000" step="500"
+                  value="10000" oninput="syncSlider('amount')" />
+              </div>
+              <div class="cc-col">
+                <label class="cc-label">Tenure</label>
+                <div class="tenure-pills" id="tenurePills">
+                  <button class="tp active" onclick="setTenure(1,this)">1 yr</button>
+                  <button class="tp" onclick="setTenure(3,this)">3 yrs</button>
+                  <button class="tp" onclick="setTenure(5,this)">5 yrs</button>
+                  <button class="tp" onclick="setTenure(10,this)">10 yrs</button>
+                </div>
+              </div>
+            </div>
+
+            <hr class="cc-hr" />
+
+            <!-- Results -->
+            <div class="cc-results">
+              <div class="result-row">
+                <div class="result-item">
+                  <div class="ri-label">Invested Amount</div>
+                  <div class="ri-val" id="investedAmt">₹1,20,000</div>
+                </div>
+                <div class="result-item">
+                  <div class="ri-label">Estimated Returns</div>
+                  <div class="ri-val profit" id="estimatedReturns">₹62,771</div>
+                </div>
+              </div>
+              <div class="result-row result-highlight">
+                <div class="result-item">
+                  <div class="ri-label">Current Value of Investment</div>
+                  <div class="ri-val big" id="currentVal">₹1,82,771</div>
+                </div>
+                <div class="result-item">
+                  <div class="ri-label">Return (CAGR)</div>
+                  <div class="ri-val big cagr" id="cagrVal">18.81 %</div>
+                </div>
+                <a href="contact.html" class="invest-btn">Invest Now</a>
+              </div>
+            </div>
+
+            <!-- Mini bar chart -->
+            <div class="mini-chart" id="miniChart">
+              <div class="mc-bar-wrap">
+                <div class="mc-bar invested" id="barInvested"></div>
+                <div class="mc-bar returns" id="barReturns"></div>
+              </div>
+              <div class="mc-legend">
+                <span class="mcl-dot inv"></span><span>Invested</span>
+                <span class="mcl-dot ret"></span><span>Est. Returns</span>
+              </div>
+            </div>
+
+            <a href="#" class="view-calc-link" onclick="return false">View other calculators →</a>
+          </div>
         </div>
       </div>
     </div>
   </section>
+
 
   <!-- MAP -->
   <section class="map-section">
@@ -640,8 +1237,8 @@
       </div>
       <div class="map-wrapper fade-up">
         <iframe
-          src="https://www.google.com/maps?q=No:%20146-4/1,%20Muthunagar,%20North%20Andalpuram%20-%20626%20108,%20Virudhunagar%20Dist,%20Tamilnadu,%20India&output=embed"
-          loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade">
+          src="https://maps.google.com/maps?q=No%20146-4/1,%20Muthunagar,%20North%20Andalpuram,%20Virudhunagar,%20Tamil%20Nadu%20626108&t=&z=15&ie=UTF8&iwloc=&output=embed"
+          width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy">
         </iframe>
       </div>
     </div>
@@ -806,6 +1403,158 @@ Message: ${formData.get("message")}`;
 
   });
 
+</script>
+
+<!-- ===== CALCULATOR SCRIPT ===== -->
+<script>
+  const FUNDS = [
+    { name: "Mars Large Cap Fund", cagr: { 1: 14.2, 3: 16.5, 5: 18.1, 10: 15.4 } },
+    { name: "Mars Mid Cap Fund", cagr: { 1: 18.6, 3: 22.3, 5: 24.1, 10: 20.2 } },
+    { name: "Mars Small Cap Fund", cagr: { 1: 24.8, 3: 27.5, 5: 22.3, 10: 18.6 } },
+    { name: "Mars Flexi Cap Fund", cagr: { 1: 16.1, 3: 19.4, 5: 20.7, 10: 17.3 } },
+    { name: "Mars ELSS Tax Saver", cagr: { 1: 15.3, 3: 18.2, 5: 19.8, 10: 16.1 } },
+    { name: "Mars Nifty 50 Index Fund", cagr: { 1: 12.4, 3: 14.8, 5: 16.2, 10: 13.9 } },
+    { name: "Mars Hybrid Aggressive Fund", cagr: { 1: 13.6, 3: 16.1, 5: 17.4, 10: 14.8 } },
+    { name: "Mars Liquid Fund", cagr: { 1: 7.1, 3: 6.9, 5: 7.2, 10: 7.0 } },
+  ];
+
+  let mode = 'SIP';
+  let tenure = 1;
+  let selectedFund = FUNDS[0];
+
+  function filterFunds() {
+    const q = document.getElementById('fundSearch').value.toLowerCase();
+    document.getElementById('clearBtn').style.display = q ? 'block' : 'none';
+    const dd = document.getElementById('fundDropdown');
+    const filtered = FUNDS.filter(f => f.name.toLowerCase().includes(q));
+    dd.innerHTML = filtered.map(f =>
+      `<div class="fund-opt" onclick="selectFund('${f.name}')">${f.name}</div>`
+    ).join('');
+    dd.classList.add('visible');
+    if (q === '') dd.classList.remove('visible');
+  }
+
+  function showDropdown() {
+    const dd = document.getElementById('fundDropdown');
+    dd.innerHTML = FUNDS.map(f =>
+      `<div class="fund-opt" onclick="selectFund('${f.name}')">${f.name}</div>`
+    ).join('');
+    dd.classList.add('visible');
+  }
+
+  function selectFund(name) {
+    selectedFund = FUNDS.find(f => f.name === name);
+    document.getElementById('fundSearch').value = name;
+    document.getElementById('fundDropdown').classList.remove('visible');
+    document.getElementById('clearBtn').style.display = 'block';
+    document.getElementById('fundSelected').style.display = 'block';
+    document.getElementById('fundSelected').textContent = '✓ ' + name + ' selected';
+    calculate();
+  }
+
+  function clearFund() {
+    document.getElementById('fundSearch').value = '';
+    document.getElementById('clearBtn').style.display = 'none';
+    document.getElementById('fundDropdown').classList.remove('visible');
+    document.getElementById('fundSelected').style.display = 'none';
+    selectedFund = FUNDS[0];
+    calculate();
+  }
+
+  function setMode(m) {
+    mode = m;
+    document.getElementById('btnSIP').classList.toggle('active', m === 'SIP');
+    document.getElementById('btnLump').classList.toggle('active', m === 'Lumpsum');
+    document.getElementById('amountLabel').textContent = m === 'SIP' ? 'Monthly SIP Amount (₹)' : 'Lumpsum Amount (₹)';
+    const slider = document.getElementById('amountSlider');
+    slider.max = m === 'SIP' ? 100000 : 10000000;
+    slider.step = m === 'SIP' ? 500 : 10000;
+    calculate();
+  }
+
+  function setTenure(y, btn) {
+    tenure = y;
+    document.querySelectorAll('.tp').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    calculate();
+  }
+
+  function togglePlan() {
+    const checked = document.getElementById('planToggle').checked;
+    document.getElementById('planLabel').style.opacity = checked ? '1' : '0.45';
+    document.getElementById('planLabel2').style.opacity = checked ? '0.45' : '1';
+    document.getElementById('planLabel').textContent = checked ? 'Regular' : 'Direct';
+    document.getElementById('planLabel2').textContent = checked ? 'Direct' : 'Regular';
+    calculate();
+  }
+
+  function syncSlider(type) {
+    const amt = parseFloat(document.getElementById('amountSlider').value);
+    document.getElementById('amountInput').value = amt;
+    calculate();
+  }
+
+  function fmt(n) {
+    return '₹' + Math.round(n).toLocaleString('en-IN');
+  }
+
+  function calculate() {
+    let amount = parseFloat(document.getElementById('amountInput').value) || 10000;
+    // Clamp
+    if (amount < 100) amount = 100;
+
+    // Sync slider (don't exceed max)
+    const slider = document.getElementById('amountSlider');
+    if (amount <= parseFloat(slider.max)) slider.value = amount;
+
+    const cagr = selectedFund.cagr[tenure] || 16;
+    // Direct gives +1% bonus
+    const isDirect = !document.getElementById('planToggle').checked;
+    const rate = cagr + (isDirect ? 1 : 0);
+
+    let invested, futureVal;
+
+    if (mode === 'SIP') {
+      const n = tenure * 12; // months
+      const r = rate / 100 / 12;
+      invested = amount * n;
+      futureVal = amount * ((Math.pow(1 + r, n) - 1) / r) * (1 + r);
+    } else {
+      invested = amount;
+      futureVal = amount * Math.pow(1 + rate / 100, tenure);
+    }
+
+    const returns = futureVal - invested;
+    const cagrDisp = rate.toFixed(2);
+
+    document.getElementById('investedAmt').textContent = fmt(invested);
+    document.getElementById('estimatedReturns').textContent = fmt(returns);
+    document.getElementById('currentVal').textContent = fmt(futureVal);
+    document.getElementById('cagrVal').textContent = cagrDisp + ' %';
+
+    // Bar chart
+    const total = futureVal;
+    const invPct = Math.max(10, (invested / total) * 100);
+    const retPct = Math.max(6, (returns / total) * 100);
+    const scale = 52;
+    document.getElementById('barInvested').style.height = (invPct / 100 * scale) + 'px';
+    document.getElementById('barReturns').style.height = (retPct / 100 * scale) + 'px';
+  }
+
+  // Update amount from input field
+  document.getElementById('amountInput').addEventListener('input', function () {
+    calculate();
+  });
+
+  // Close dropdown on outside click
+  document.addEventListener('click', function (e) {
+    if (!e.target.closest('.fund-search-wrap')) {
+      document.getElementById('fundDropdown').classList.remove('visible');
+    }
+  });
+
+  // Initial calculation
+  window.addEventListener('load', calculate);
 </script>
 
 </html>

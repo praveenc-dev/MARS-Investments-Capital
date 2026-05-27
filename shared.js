@@ -46,7 +46,7 @@ const FOOTER_HTML = `
       <a class="social-btn" href="#" title="Twitter">𝕏</a>
       <a class="social-btn" href="#" title="LinkedIn">in</a>
       <a class="social-btn" href="#" title="Facebook">f</a>
-      <a class="social-btn" href="#" title="YouTube">▶</a>
+      <a class="social-btn" href="https://www.youtube.com/channel/UCsYLdJogtW-DSp2kdtG-TNw" target="_blank" title="YouTube">▶</a>
     </div>
   </div>
   <div class="footer-col">

@@ -363,7 +363,7 @@ section {
 }
 
 .page-hero h1 {
-  font-family: 'Playfair Display', serif;
+  /* font-family: 'Playfair Display', serif; */
   font-size: clamp(32px, 4.5vw, 52px);
   font-weight: 800;
   color: var(--white);
@@ -402,7 +402,8 @@ section {
 
 /* ===== TRUST BAR ===== */
 .trust-bar {
-  background: var(--dark);
+  /* background: var(--dark); */
+  background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 100%);
   padding: 22px 5%;
 }
 
@@ -447,6 +448,7 @@ section {
   display: flex;
   flex-direction: column;
   gap: 12px;
+  align-items: center;
 }
 
 .product-card:hover {
