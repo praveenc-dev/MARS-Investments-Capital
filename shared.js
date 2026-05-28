@@ -12,6 +12,7 @@ const NAV_HTML = `
     </div>
   </div>
 </div>
+
 <div class="nav-container">
   <a class="nav-logo" href="index.html">
     <div class="logo-img-wrap">
