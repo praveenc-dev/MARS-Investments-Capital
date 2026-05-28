@@ -9,6 +9,7 @@
     content="Mars Investments Capital – India's trusted investment partner for Stocks, Mutual Funds, SIP, Bonds, IPO and more." />
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <style>
     /* ===== HERO ===== */
     .hero {
@@ -74,7 +75,9 @@
     }
 
     .hero h1 {
-      font-family: 'Playfair Display', serif;
+      /* font-family: 'Playfair Display', serif; */
+
+       font-family: 'Road Radio', sans-serif;
       font-size: clamp(36px, 5vw, 58px);
       line-height: 1.15;
       font-weight: 800;
@@ -645,6 +648,60 @@
 <body>
   <nav></nav>
 
+
+  <nav class="social">
+    <ul>
+      <li>
+        <a href="https://www.facebook.com/share/19NH35e4fU/" target="_blank">
+          Facebook
+          <i class="bi bi-facebook"></i>
+        </a>
+      </li>
+
+      <li>
+        <a href="https://www.instagram.com/mars_official___?igsh=a2VobWpkNWJmcGE4" target="_blank">
+          Instagram
+          <i class="bi bi-instagram"></i>
+        </a>
+      </li>
+
+      <li>
+        <a href="https://www.youtube.com/channel/UCsYLdJogtW-DSp2kdtG-TNw" target="_blank">
+          Youtube
+          <i class="bi bi-youtube"></i>
+        </a>
+      </li>
+
+      <!-- <li>
+        <a href="https://www.linkedin.com/company/nexus-digitalia/" target="_blank">
+          Linkedin
+          <i class="bi bi-linkedin"></i>
+        </a>
+      </li> -->
+
+      <!-- <li>
+        <a href="https://x.com/Nexusdigitalia" target="_blank">
+          Twitter
+          <i class="bi bi-twitter-x"></i>
+        </a>
+      </li> -->
+
+      <li>
+        <a href="tel:7200300672">
+          Call Us
+          <i class="bi bi-telephone-fill"></i>
+        </a>
+      </li>
+
+      <!-- <li>
+        <a href="#">
+          India
+          <i class="bi bi-geo-alt-fill"></i>
+        </a>
+      </li> -->
+    </ul>
+  </nav>
+
   <!-- HERO -->
   <section class="hero">
     <div class="hero-left fade-up">
@@ -653,6 +710,13 @@
       <h1>Think <span class="accent">Smart.</span><br>Think <span class="gold-t">Mars</span><br>Investments.</h1>
       <p class="hero-sub">India's trusted investment partner — empowering retail investors with smart tools, expert
         research, and zero hidden fees.</p>
+      <div class="asteroid-2">
+        ❤️
+      </div>
+
+      <div class="asteroid-3">
+        ⚡
+      </div>
       <div class="hero-stats">
         <div class="stat-chip"><span class="num">10L+</span><span class="label">Happy Clients</span></div>
         <div class="stat-chip"><span class="num">15+</span><span class="label">Years Experience</span></div>
@@ -676,35 +740,9 @@
     </div>
     <div class="hero-right fade-up">
       <div class="hero-card-stack">
-        <!-- <img src="./images/banner1.jpeg" alt="banner" /> -->
+        <img src="./images/banner1.jpeg" alt="banner" />
 
-        <div class="swiper testi-swiper fade-up">
-          <div class="swiper-wrapper">
-            <div class="swiper-slide">
-              <img src="./images/5 APRIL 2026_page-0001.jpg.jpeg" alt="banner" />
-
-            </div>
-            <div class="swiper-slide">
-              <img src="./images/3 FEBRUARY 2026-images-0.jpg.jpeg" alt="banner" />
-
-            </div>
-            <div class="swiper-slide">
-              <img src="./images/4 MARCH 2026_page-0016.jpg.jpeg" alt="banner" />
-
-            </div>
-            <div class="swiper-slide">
-              <img src="./images/5 APRIL 2026_page-0014.jpg.jpeg" alt="banner" />
-
-            </div>
-            <div class="swiper-slide">
-              <img src="./images/5 APRIL 2026_page-0025.jpg.jpeg" alt="banner" />
-
-            </div>
-          </div>
-          <div class="swiper-pagination"></div>
-          <div class="swiper-button-next"></div>
-          <div class="swiper-button-prev"></div>
-        </div>
+        
         <!-- <div class="market-card">
           <h3>📈 Live Market Overview</h3>
           <div class="market-rows">
@@ -745,6 +783,42 @@
       </div>
     </div>
   </section>
+
+  <section class="testi-bg">
+    <div class="wrap">
+     
+     <div class="swiper testi-swiper fade-up swiper-img">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <img src="./images/5 APRIL 2026_page-0001.jpg.jpeg" alt="banner" />
+
+            </div>
+            <div class="swiper-slide">
+              <img src="./images/3 FEBRUARY 2026-images-0.jpg.jpeg" alt="banner" />
+
+            </div>
+            <div class="swiper-slide">
+              <img src="./images/4 MARCH 2026_page-0016.jpg.jpeg" alt="banner" />
+
+            </div>
+            <div class="swiper-slide">
+              <img src="./images/5 APRIL 2026_page-0014.jpg.jpeg" alt="banner" />
+
+            </div>
+            <div class="swiper-slide">
+              <img src="./images/5 APRIL 2026_page-0025.jpg.jpeg" alt="banner" />
+
+            </div>
+          </div>
+          <div class="swiper-pagination"></div>
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
+        </div>
+    </div>
+  </section>
+
+
+
 
   <!-- TRUST BAR -->
   <div class="trust-bar">
@@ -858,7 +932,7 @@
           <h3>Health Insurance</h3>
           <div class="prod-arrow">→</div>
         </a>
-        
+
       </div>
     </div>
   </section>

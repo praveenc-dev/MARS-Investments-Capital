@@ -3,6 +3,15 @@
 // ============================================================
 
 const NAV_HTML = `
+<div>
+  <div class="top-bar">
+    <div class="contact-info gap-20 d-flex">
+     <span>📍 India</span>
+      <span>📞 +91-7200300672</span>
+      <span>✉️ support@marsinvestmentscapital.co.in</span>
+    </div>
+  </div>
+</div>
 <div class="nav-container">
   <a class="nav-logo" href="index.html">
     <div class="logo-img-wrap">
