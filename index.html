@@ -611,6 +611,8 @@
       .ap-grid {
         grid-template-columns: 1fr;
       }
+
+
     }
 
     @media(max-width:768px) {
@@ -643,6 +645,18 @@
         letter-spacing: 2px;
         text-transform: uppercase;
         font-weight: 600;
+      }
+
+      .ap-grid {
+        display: grid;
+        grid-template-columns: min-content;
+        gap: 70px;
+        align-items: center;
+      }
+
+      .ap-main-card {
+        padding: 30px 10px;
+
       }
     }
 
@@ -1266,38 +1280,40 @@
 
   <footer></footer>
 
-  <script src="shared.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.js"></script>
-  <script>
-    // Testimonials Swiper
-    new Swiper('.testi-swiper', {
-      slidesPerView: 1,
-      spaceBetween: 24,
-      loop: true,
-      autoplay: { delay: 4500, disableOnInteraction: false },
-      pagination: { el: '.swiper-pagination', clickable: true },
-      navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
-      breakpoints: { 640: { slidesPerView: 2 }, 1024: { slidesPerView: 1 } }
-    });
 
-    // Hero form
-    function heroSubmit() {
-      const name = document.getElementById('heroName').value.trim();
-      const phone = document.getElementById('heroPhone').value.trim();
-      if (!name || !phone) { alert('Please fill in your name and mobile number.'); return; }
-      alert('Thanks ' + name + '! Our advisor will call you at ' + phone + ' shortly. 🚀');
-    }
-
-    // Video play
-    function playVideo() {
-      const thumb = document.getElementById('videoThumb');
-      const frame = document.getElementById('videoFrame');
-      frame.src = frame.getAttribute('data-src');
-      frame.style.display = 'block';
-      thumb.style.display = 'none';
-    }
-  </script>
 </body>
+
+<script src="shared.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.js"></script>
+<script>
+  // Testimonials Swiper
+  new Swiper('.testi-swiper', {
+    slidesPerView: 1,
+    spaceBetween: 24,
+    loop: true,
+    autoplay: { delay: 4500, disableOnInteraction: false },
+    pagination: { el: '.swiper-pagination', clickable: true },
+    navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+    breakpoints: { 640: { slidesPerView: 2 }, 1024: { slidesPerView: 1 } }
+  });
+
+  // Hero form
+  function heroSubmit() {
+    const name = document.getElementById('heroName').value.trim();
+    const phone = document.getElementById('heroPhone').value.trim();
+    if (!name || !phone) { alert('Please fill in your name and mobile number.'); return; }
+    alert('Thanks ' + name + '! Our advisor will call you at ' + phone + ' shortly. 🚀');
+  }
+
+  // Video play
+  function playVideo() {
+    const thumb = document.getElementById('videoThumb');
+    const frame = document.getElementById('videoFrame');
+    frame.src = frame.getAttribute('data-src');
+    frame.style.display = 'block';
+    thumb.style.display = 'none';
+  }
+</script>
 
 
 <script>
@@ -1374,34 +1390,34 @@ Phone: ${phone}`;
 
 <script>
 
-const cursor = document.querySelector(".cursor");
+  const cursor = document.querySelector(".cursor");
 
-let mouseX = 0;
-let mouseY = 0;
+  let mouseX = 0;
+  let mouseY = 0;
 
-let currentX = 0;
-let currentY = 0;
+  let currentX = 0;
+  let currentY = 0;
 
-document.addEventListener("mousemove", (e) => {
+  document.addEventListener("mousemove", (e) => {
 
     mouseX = e.clientX;
     mouseY = e.clientY;
 
-});
+  });
 
-function animateCursor(){
+  function animateCursor() {
 
     currentX += (mouseX - currentX) * 0.15;
     currentY += (mouseY - currentY) * 0.15;
 
     cursor.style.left = currentX + "px";
-    cursor.style.top  = currentY + "px";
+    cursor.style.top = currentY + "px";
 
     requestAnimationFrame(animateCursor);
 
-}
+  }
 
-animateCursor();
+  animateCursor();
 
 </script>
 
