@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=DM+Sans:wght@300;400;500;600;700&display=swap');
 @import url('https://fonts.cdnfonts.com/css/road-radio');
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;300;400;500;600;700;800;900&display=swap');
+
 :root {
   --teal: #00B8A9;
   --teal-dark: #009688;
@@ -46,41 +47,41 @@
 
 
 
-.cursor{
-    width: 35px;
-    height: 35px;
-    border: 2px solid #00B8A9;
-    border-radius: 50%;
+.cursor {
+  width: 35px;
+  height: 35px;
+  border: 2px solid #00B8A9;
+  border-radius: 50%;
 
-    position: fixed;
-    top: 0;
-    left: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
 
-    pointer-events: none;
+  pointer-events: none;
 
-    transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 
-    z-index: 999999;
+  z-index: 999999;
 
-    transition: transform 0.08s linear;
+  transition: transform 0.08s linear;
 }
 
-.cursor::after{
-    content: "";
+.cursor::after {
+  content: "";
 
-    width: 12px;
-    height: 12px;
+  width: 12px;
+  height: 12px;
 
-    background: #00B8A9;
+  background: #00B8A9;
 
-    border-radius: 50%;
+  border-radius: 50%;
 
-    position: absolute;
+  position: absolute;
 
-    top: 50%;
-    left: 50%;
+  top: 50%;
+  left: 50%;
 
-    transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
 
 
@@ -118,13 +119,12 @@ a {
   margin-right: 12px;
 }
 
-.contact-info
-{
-   background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 100%);
-   padding: 6px 12px;
-   border-radius: 8px;
-   gap: 20px;
-    border-radius: 230px 100px;
+.contact-info {
+  background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 100%);
+  padding: 6px 12px;
+  border-radius: 8px;
+  gap: 20px;
+  border-radius: 230px 100px;
 }
 
 /* ===== NAVBAR ===== */
@@ -148,12 +148,12 @@ nav.scrolled {
   max-width: 1280px;
   margin: 0 auto;
   height: 100%;
-  padding: 0 5%;
+  padding: 10px 5% !important;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 24px;
-  margin:10px ;
+  /* margin:10px ; */
 }
 
 .nav-logo {
@@ -653,7 +653,7 @@ section {
 
 .cta-strip h2 {
   /* font-family: 'Playfair Display', serif; */
-    font-family: 'Road Radio', sans-serif;
+  font-family: 'Road Radio', sans-serif;
   font-size: clamp(26px, 3.5vw, 40px);
   color: var(--white);
   font-weight: 700;
@@ -949,6 +949,12 @@ footer {
     flex-direction: column;
     text-align: center;
   }
+
+  .top-bar span {
+    font-size: 11px;
+    font-weight: bolder;
+    margin-right: 12px;
+  }
 }
 
 @media(max-width:480px) {
@@ -1035,99 +1041,119 @@ footer {
     width: 280px;
     font-size: 14px;
   }
+
+  .logo-text .sub {
+    font-size: 12px;
+    color: var(--gold);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
 }
 
-.asteroid-2{
-    width: 49px;
-    height: 46px;
+.asteroid-2 {
+  width: 49px;
+  height: 46px;
 
-    position: fixed; /* absolute ku badhila fixed */
-    top: 20%;
-    left: -100px;
+  position: fixed;
+  /* absolute ku badhila fixed */
+  top: 20%;
+  left: -100px;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-    font-size: 40px;
+  font-size: 40px;
 
-    z-index: 999999;
+  z-index: 999999;
 
-    pointer-events: none;
+  pointer-events: none;
 
-    animation: fly 8s linear infinite;
+  animation: fly 8s linear infinite;
 }
 
-@keyframes fly{
+@keyframes fly {
 
-    0%{
-        transform: translateX(0) rotate(0deg);
-        opacity: 0;
-    }
+  0% {
+    transform: translateX(0) rotate(0deg);
+    opacity: 0;
+  }
 
-    10%{
-        opacity: 1;
-    }
+  10% {
+    opacity: 1;
+  }
 
-    50%{
-        transform: translateX(50vw) translateY(-30px) rotate(180deg);
-    }
+  50% {
+    transform: translateX(50vw) translateY(-30px) rotate(180deg);
+  }
 
-    100%{
-        transform: translateX(120vw) translateY(50px) rotate(360deg);
-        opacity: 0;
-    }
-
-}
-
-
-.asteroid-3{
-    width: 49px;
-    height: 46px;
-
-    position: fixed;
-
-    bottom: -100px;
-    right: -100px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    font-size: 40px;
-
-    z-index: 999999;
-
-    pointer-events: none;
-
-    animation: fly_2 8s linear infinite alternate;
-}
-
-@keyframes fly_2{
-
-    0%{
-        transform: translate(0,0) rotate(0deg);
-        opacity: 0;
-    }
-
-    10%{
-        opacity: 1;
-    }
-
-    50%{
-        transform: translate(-50vw,-50vh) rotate(-180deg);
-    }
-
-    100%{
-        transform: translate(-120vw,-120vh) rotate(-360deg);
-        opacity: 1;
-    }
+  100% {
+    transform: translateX(120vw) translateY(50px) rotate(360deg);
+    opacity: 0;
+  }
 
 }
 
 
-.swiper-img img{
+.asteroid-3 {
+  width: 49px;
+  height: 46px;
+
+  position: fixed;
+
+  bottom: -100px;
+  right: -100px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 40px;
+
+  z-index: 999999;
+
+  pointer-events: none;
+
+  animation: fly_2 8s linear infinite alternate;
+}
+
+@keyframes fly_2 {
+
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 1;
+  }
+
+  50% {
+    transform: translate(-50vw, -50vh) rotate(-180deg);
+  }
+
+  100% {
+    transform: translate(-120vw, -120vh) rotate(-360deg);
+    opacity: 1;
+  }
+
+}
+
+
+.swiper-img img {
   width: 100%;
   height: 200px;
 }
 
+@media (max-width:768px) {
+
+  body {
+    cursor: auto;
+  }
+
+  .cursor {
+    display: none;
+  }
+
+}
