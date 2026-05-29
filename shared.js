@@ -6,7 +6,7 @@ const NAV_HTML = `
 <div>
   <div class="top-bar">
     <div class="contact-info gap-20 d-flex">
-     <span>📍 India</span>
+      <span><i class="bi bi-geo-alt-fill"></i> India</span>
       <span>📞 +91-7200300672</span>
       <span>✉️ support@marsinvestmentscapital.co.in</span>
     </div>

@@ -78,7 +78,8 @@
     .hero h1 {
       /* font-family: 'Playfair Display', serif; */
 
-       font-family: 'Road Radio', sans-serif;
+      /* font-family: 'Road Radio', sans-serif; */
+      font-family: "Nunito Sans", sans-serif;
       font-size: clamp(36px, 5vw, 58px);
       line-height: 1.15;
       font-weight: 800;
@@ -629,6 +630,20 @@
       .products-grid {
         grid-template-columns: repeat(2, 1fr);
       }
+
+      .top-bar span {
+        font-size: 11px;
+        font-weight: bolder;
+        margin-right: 12px;
+      }
+
+      .logo-text .sub {
+        font-size: 11px;
+        color: var(--gold);
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        font-weight: 600;
+      }
     }
 
     @media(max-width:480px) {
@@ -743,7 +758,7 @@
       <div class="hero-card-stack">
         <img src="./images/banner1.jpeg" alt="banner" />
 
-        
+
         <!-- <div class="market-card">
           <h3>📈 Live Market Overview</h3>
           <div class="market-rows">
@@ -787,34 +802,34 @@
 
   <section class="testi-bg">
     <div class="wrap">
-     
-     <div class="swiper testi-swiper fade-up swiper-img">
-          <div class="swiper-wrapper">
-            <div class="swiper-slide">
-              <img src="./images/5 APRIL 2026_page-0001.jpg.jpeg" alt="banner" />
 
-            </div>
-            <div class="swiper-slide">
-              <img src="./images/3 FEBRUARY 2026-images-0.jpg.jpeg" alt="banner" />
+      <div class="swiper testi-swiper fade-up swiper-img">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <img src="./images/5 APRIL 2026_page-0001.jpg.jpeg" alt="banner" />
 
-            </div>
-            <div class="swiper-slide">
-              <img src="./images/4 MARCH 2026_page-0016.jpg.jpeg" alt="banner" />
-
-            </div>
-            <div class="swiper-slide">
-              <img src="./images/5 APRIL 2026_page-0014.jpg.jpeg" alt="banner" />
-
-            </div>
-            <div class="swiper-slide">
-              <img src="./images/5 APRIL 2026_page-0025.jpg.jpeg" alt="banner" />
-
-            </div>
           </div>
-          <div class="swiper-pagination"></div>
-          <div class="swiper-button-next"></div>
-          <div class="swiper-button-prev"></div>
+          <div class="swiper-slide">
+            <img src="./images/3 FEBRUARY 2026-images-0.jpg.jpeg" alt="banner" />
+
+          </div>
+          <div class="swiper-slide">
+            <img src="./images/4 MARCH 2026_page-0016.jpg.jpeg" alt="banner" />
+
+          </div>
+          <div class="swiper-slide">
+            <img src="./images/5 APRIL 2026_page-0014.jpg.jpeg" alt="banner" />
+
+          </div>
+          <div class="swiper-slide">
+            <img src="./images/5 APRIL 2026_page-0025.jpg.jpeg" alt="banner" />
+
+          </div>
         </div>
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+      </div>
     </div>
   </section>
 
@@ -1247,6 +1262,7 @@
     <a href="contact.html" class="btn-white">Open Free Account</a>
     <a href="services.html" class="btn-outline-white">Explore Services</a>
   </div>
+  <div class="cursor"></div>
 
   <footer></footer>
 
@@ -1353,6 +1369,39 @@ Phone: ${phone}`;
       });
 
   }
+
+</script>
+
+<script>
+
+const cursor = document.querySelector(".cursor");
+
+let mouseX = 0;
+let mouseY = 0;
+
+let currentX = 0;
+let currentY = 0;
+
+document.addEventListener("mousemove", (e) => {
+
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+
+});
+
+function animateCursor(){
+
+    currentX += (mouseX - currentX) * 0.15;
+    currentY += (mouseY - currentY) * 0.15;
+
+    cursor.style.left = currentX + "px";
+    cursor.style.top  = currentY + "px";
+
+    requestAnimationFrame(animateCursor);
+
+}
+
+animateCursor();
 
 </script>
 

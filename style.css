@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=DM+Sans:wght@300;400;500;600;700&display=swap');
 @import url('https://fonts.cdnfonts.com/css/road-radio');
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;300;400;500;600;700;800;900&display=swap');
 :root {
   --teal: #00B8A9;
   --teal-dark: #009688;
@@ -44,6 +45,45 @@
 }
 
 
+
+.cursor{
+    width: 35px;
+    height: 35px;
+    border: 2px solid #00B8A9;
+    border-radius: 50%;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    pointer-events: none;
+
+    transform: translate(-50%, -50%);
+
+    z-index: 999999;
+
+    transition: transform 0.08s linear;
+}
+
+.cursor::after{
+    content: "";
+
+    width: 12px;
+    height: 12px;
+
+    background: #00B8A9;
+
+    border-radius: 50%;
+
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+}
+
+
 html {
   scroll-behavior: smooth;
 }
@@ -65,17 +105,26 @@ a {
 }
 
 .top-bar {
-  background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 100%);
+  /* background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 100%); */
   color: white;
   font-size: 13px;
-  padding: 6px 5%;
+  padding: 0px 5%;
   text-align: center;
 }
 
 .top-bar span {
-  font-size: 15px;
+  font-size: 18px;
   font-weight: bolder;
   margin-right: 12px;
+}
+
+.contact-info
+{
+   background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 100%);
+   padding: 6px 12px;
+   border-radius: 8px;
+   gap: 20px;
+    border-radius: 230px 100px;
 }
 
 /* ===== NAVBAR ===== */
@@ -84,10 +133,10 @@ nav {
   top: 0;
   z-index: 999;
   /* background: var(--white); */
-  background: linear-gradient(135deg, #F7FAFB 0%, #E8F8F6 55%, #FFF8E6 100%);
-  border-bottom: 1px solid var(--border);
+  background: linear-gradient(135deg, #F7FAFB 0%, #E8F8F6 55%, #E8F8F6 100%);
+  /* border-bottom: 1px solid var(--border); */
   /* height: 72px; */
-  box-shadow: 0 2px 16px rgba(0, 184, 169, .08);
+  /* box-shadow: 0 2px 16px rgba(0, 184, 169, .08); */
   transition: box-shadow .3s;
 }
 
@@ -104,6 +153,7 @@ nav.scrolled {
   align-items: center;
   justify-content: space-between;
   gap: 24px;
+  margin:10px ;
 }
 
 .nav-logo {
@@ -137,12 +187,12 @@ nav.scrolled {
   /* font-family: 'Playfair Display', serif; */
   font-family: 'Road Radio', sans-serif;
   font-weight: 700;
-  font-size: 18px;
+  font-size: 30px;
   color: var(--dark);
 }
 
 .logo-text .sub {
-  font-size: 9px;
+  font-size: 15px;
   color: var(--gold);
   letter-spacing: 2px;
   text-transform: uppercase;
