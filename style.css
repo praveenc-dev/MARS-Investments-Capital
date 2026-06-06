@@ -185,7 +185,7 @@ nav.scrolled {
 
 .logo-text .brand {
   /* font-family: 'Playfair Display', serif; */
-  font-family: 'Road Radio', sans-serif;
+  /* font-family: 'Road Radio', sans-serif; */
   font-weight: 700;
   font-size: 30px;
   color: var(--dark);

@@ -456,7 +456,7 @@
   </style>
 
 
-  <style>
+  <!-- <style>
     .calc-section {
       background: linear-gradient(135deg, #EEF2FF 0%, #E0F7F5 60%, #FFF8E6 100%);
       padding: 90px 5%;
@@ -970,7 +970,7 @@
         padding: 24px 18px;
       }
     }
-  </style>
+  </style> -->
 </head>
 
 <body>
@@ -1136,137 +1136,7 @@
     </div>
   </section>
 
-  <section class="calc-section calculator">
-    <div class="wrap">
-      <div class="calc-layout">
 
-        <!-- LEFT -->
-        <div class="calc-left fade-up">
-          <div class="calc-icon-wrap">
-            <svg width="72" height="72" viewBox="0 0 72 72" fill="none">
-              <rect x="8" y="36" width="14" height="28" rx="4" fill="#00B8A9" opacity="0.4" />
-              <rect x="29" y="22" width="14" height="42" rx="4" fill="#00B8A9" opacity="0.7" />
-              <rect x="50" y="10" width="14" height="54" rx="4" fill="#00B8A9" />
-              <path d="M10 40 L28 24 L48 14 L64 6" stroke="#F0B429" stroke-width="3" stroke-linecap="round"
-                stroke-linejoin="round" />
-              <circle cx="64" cy="6" r="4" fill="#F0B429" />
-            </svg>
-          </div>
-          <h2 class="calc-heading">Investment<br><span>Performance Calculator</span></h2>
-          <p class="calc-desc">Explore how much wealth you would have created by investing in our schemes using this SIP
-            /
-            Lumpsum Calculator.</p>
-          <div class="calc-trust">
-            <div class="ct-item"><span class="ct-icon">📈</span><span>Based on historical NAV data</span></div>
-            <div class="ct-item"><span class="ct-icon">🔒</span><span>SEBI Registered Funds</span></div>
-            <div class="ct-item"><span class="ct-icon">⚡</span><span>Instant calculation</span></div>
-          </div>
-          <p class="calc-disclaimer">*Past performance is not indicative of future results. Mutual Fund investments are
-            subject to market risks.</p>
-        </div>
-
-        <!-- RIGHT — CALCULATOR CARD -->
-        <div class="calc-right fade-up">
-          <div class="calc-card">
-
-            <!-- Fund Search -->
-            <div class="cc-field">
-              <label class="cc-label">Search a Fund</label>
-              <div class="fund-search-wrap">
-                <input type="text" id="fundSearch" class="fund-input" placeholder="Type fund name..." autocomplete="off"
-                  oninput="filterFunds()" onfocus="showDropdown()" />
-                <button class="fund-clear" onclick="clearFund()" id="clearBtn" style="display:none">✕</button>
-                <div class="fund-dropdown" id="fundDropdown">
-                  <!-- populated by JS -->
-                </div>
-              </div>
-              <div class="fund-selected" id="fundSelected" style="display:none"></div>
-            </div>
-
-            <!-- SIP / Lumpsum Toggle -->
-            <div class="cc-toggle-row">
-              <button class="toggle-pill active" id="btnSIP" onclick="setMode('SIP')">SIP</button>
-              <button class="toggle-pill" id="btnLump" onclick="setMode('Lumpsum')">Lumpsum</button>
-              <div class="ml-auto cc-plan-toggle">
-                <span class="plan-label" id="planLabel">Regular</span>
-                <label class="switch">
-                  <input type="checkbox" id="planToggle" onchange="togglePlan()" checked>
-                  <span class="slider-round"></span>
-                </label>
-                <span class="plan-label" id="planLabel2" style="opacity:.45">Direct</span>
-              </div>
-            </div>
-
-            <hr class="cc-hr" />
-
-            <!-- Amount Row -->
-            <div class="cc-row">
-              <div class="cc-col">
-                <label class="cc-label" id="amountLabel">Monthly SIP Amount (₹)</label>
-                <div class="amount-input-wrap">
-                  <span class="rupee">₹</span>
-                  <input type="number" id="amountInput" class="amount-input" value="10000" min="500" max="10000000"
-                    oninput="calculate()" />
-                </div>
-                <input type="range" id="amountSlider" class="range-slider" min="500" max="100000" step="500"
-                  value="10000" oninput="syncSlider('amount')" />
-              </div>
-              <div class="cc-col">
-                <label class="cc-label">Tenure</label>
-                <div class="tenure-pills" id="tenurePills">
-                  <button class="tp active" onclick="setTenure(1,this)">1 yr</button>
-                  <button class="tp" onclick="setTenure(3,this)">3 yrs</button>
-                  <button class="tp" onclick="setTenure(5,this)">5 yrs</button>
-                  <button class="tp" onclick="setTenure(10,this)">10 yrs</button>
-                </div>
-              </div>
-            </div>
-
-            <hr class="cc-hr" />
-
-            <!-- Results -->
-            <div class="cc-results">
-              <div class="result-row">
-                <div class="result-item">
-                  <div class="ri-label">Invested Amount</div>
-                  <div class="ri-val" id="investedAmt">₹1,20,000</div>
-                </div>
-                <div class="result-item">
-                  <div class="ri-label">Estimated Returns</div>
-                  <div class="ri-val profit" id="estimatedReturns">₹62,771</div>
-                </div>
-              </div>
-              <div class="result-row result-highlight">
-                <div class="result-item">
-                  <div class="ri-label">Current Value of Investment</div>
-                  <div class="ri-val big" id="currentVal">₹1,82,771</div>
-                </div>
-                <div class="result-item">
-                  <div class="ri-label">Return (CAGR)</div>
-                  <div class="ri-val big cagr" id="cagrVal">18.81 %</div>
-                </div>
-                <a href="contact.html" class="invest-btn">Invest Now</a>
-              </div>
-            </div>
-
-            <!-- Mini bar chart -->
-            <div class="mini-chart" id="miniChart">
-              <div class="mc-bar-wrap">
-                <div class="mc-bar invested" id="barInvested"></div>
-                <div class="mc-bar returns" id="barReturns"></div>
-              </div>
-              <div class="mc-legend">
-                <span class="mcl-dot inv"></span><span>Invested</span>
-                <span class="mcl-dot ret"></span><span>Est. Returns</span>
-              </div>
-            </div>
-
-            <a href="#" class="view-calc-link" onclick="return false">View other calculators →</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
 
   <!-- MAP -->
@@ -1386,6 +1256,7 @@
       if (!isOpen) item.classList.add('open');
     }
   </script>
+
 </body>
 
 <script>
@@ -1448,157 +1319,6 @@ Message: ${formData.get("message")}`;
 
 </script>
 
-<!-- ===== CALCULATOR SCRIPT ===== -->
-<script>
-  const FUNDS = [
-    { name: "Mars Large Cap Fund", cagr: { 1: 14.2, 3: 16.5, 5: 18.1, 10: 15.4 } },
-    { name: "Mars Mid Cap Fund", cagr: { 1: 18.6, 3: 22.3, 5: 24.1, 10: 20.2 } },
-    { name: "Mars Small Cap Fund", cagr: { 1: 24.8, 3: 27.5, 5: 22.3, 10: 18.6 } },
-    { name: "Mars Flexi Cap Fund", cagr: { 1: 16.1, 3: 19.4, 5: 20.7, 10: 17.3 } },
-    { name: "Mars ELSS Tax Saver", cagr: { 1: 15.3, 3: 18.2, 5: 19.8, 10: 16.1 } },
-    { name: "Mars Nifty 50 Index Fund", cagr: { 1: 12.4, 3: 14.8, 5: 16.2, 10: 13.9 } },
-    { name: "Mars Hybrid Aggressive Fund", cagr: { 1: 13.6, 3: 16.1, 5: 17.4, 10: 14.8 } },
-    { name: "Mars Liquid Fund", cagr: { 1: 7.1, 3: 6.9, 5: 7.2, 10: 7.0 } },
-  ];
-
-  let mode = 'SIP';
-  let tenure = 1;
-  let selectedFund = FUNDS[0];
-
-  function filterFunds() {
-    const q = document.getElementById('fundSearch').value.toLowerCase();
-    document.getElementById('clearBtn').style.display = q ? 'block' : 'none';
-    const dd = document.getElementById('fundDropdown');
-    const filtered = FUNDS.filter(f => f.name.toLowerCase().includes(q));
-    dd.innerHTML = filtered.map(f =>
-      `<div class="fund-opt" onclick="selectFund('${f.name}')">${f.name}</div>`
-    ).join('');
-    dd.classList.add('visible');
-    if (q === '') dd.classList.remove('visible');
-  }
-
-  function showDropdown() {
-    const dd = document.getElementById('fundDropdown');
-    dd.innerHTML = FUNDS.map(f =>
-      `<div class="fund-opt" onclick="selectFund('${f.name}')">${f.name}</div>`
-    ).join('');
-    dd.classList.add('visible');
-  }
-
-  function selectFund(name) {
-    selectedFund = FUNDS.find(f => f.name === name);
-    document.getElementById('fundSearch').value = name;
-    document.getElementById('fundDropdown').classList.remove('visible');
-    document.getElementById('clearBtn').style.display = 'block';
-    document.getElementById('fundSelected').style.display = 'block';
-    document.getElementById('fundSelected').textContent = '✓ ' + name + ' selected';
-    calculate();
-  }
-
-  function clearFund() {
-    document.getElementById('fundSearch').value = '';
-    document.getElementById('clearBtn').style.display = 'none';
-    document.getElementById('fundDropdown').classList.remove('visible');
-    document.getElementById('fundSelected').style.display = 'none';
-    selectedFund = FUNDS[0];
-    calculate();
-  }
-
-  function setMode(m) {
-    mode = m;
-    document.getElementById('btnSIP').classList.toggle('active', m === 'SIP');
-    document.getElementById('btnLump').classList.toggle('active', m === 'Lumpsum');
-    document.getElementById('amountLabel').textContent = m === 'SIP' ? 'Monthly SIP Amount (₹)' : 'Lumpsum Amount (₹)';
-    const slider = document.getElementById('amountSlider');
-    slider.max = m === 'SIP' ? 100000 : 10000000;
-    slider.step = m === 'SIP' ? 500 : 10000;
-    calculate();
-  }
-
-  function setTenure(y, btn) {
-    tenure = y;
-    document.querySelectorAll('.tp').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    calculate();
-  }
-
-  function togglePlan() {
-    const checked = document.getElementById('planToggle').checked;
-    document.getElementById('planLabel').style.opacity = checked ? '1' : '0.45';
-    document.getElementById('planLabel2').style.opacity = checked ? '0.45' : '1';
-    document.getElementById('planLabel').textContent = checked ? 'Regular' : 'Direct';
-    document.getElementById('planLabel2').textContent = checked ? 'Direct' : 'Regular';
-    calculate();
-  }
-
-  function syncSlider(type) {
-    const amt = parseFloat(document.getElementById('amountSlider').value);
-    document.getElementById('amountInput').value = amt;
-    calculate();
-  }
-
-  function fmt(n) {
-    return '₹' + Math.round(n).toLocaleString('en-IN');
-  }
-
-  function calculate() {
-    let amount = parseFloat(document.getElementById('amountInput').value) || 10000;
-    // Clamp
-    if (amount < 100) amount = 100;
-
-    // Sync slider (don't exceed max)
-    const slider = document.getElementById('amountSlider');
-    if (amount <= parseFloat(slider.max)) slider.value = amount;
-
-    const cagr = selectedFund.cagr[tenure] || 16;
-    // Direct gives +1% bonus
-    const isDirect = !document.getElementById('planToggle').checked;
-    const rate = cagr + (isDirect ? 1 : 0);
-
-    let invested, futureVal;
-
-    if (mode === 'SIP') {
-      const n = tenure * 12; // months
-      const r = rate / 100 / 12;
-      invested = amount * n;
-      futureVal = amount * ((Math.pow(1 + r, n) - 1) / r) * (1 + r);
-    } else {
-      invested = amount;
-      futureVal = amount * Math.pow(1 + rate / 100, tenure);
-    }
-
-    const returns = futureVal - invested;
-    const cagrDisp = rate.toFixed(2);
-
-    document.getElementById('investedAmt').textContent = fmt(invested);
-    document.getElementById('estimatedReturns').textContent = fmt(returns);
-    document.getElementById('currentVal').textContent = fmt(futureVal);
-    document.getElementById('cagrVal').textContent = cagrDisp + ' %';
-
-    // Bar chart
-    const total = futureVal;
-    const invPct = Math.max(10, (invested / total) * 100);
-    const retPct = Math.max(6, (returns / total) * 100);
-    const scale = 52;
-    document.getElementById('barInvested').style.height = (invPct / 100 * scale) + 'px';
-    document.getElementById('barReturns').style.height = (retPct / 100 * scale) + 'px';
-  }
-
-  // Update amount from input field
-  document.getElementById('amountInput').addEventListener('input', function () {
-    calculate();
-  });
-
-  // Close dropdown on outside click
-  document.addEventListener('click', function (e) {
-    if (!e.target.closest('.fund-search-wrap')) {
-      document.getElementById('fundDropdown').classList.remove('visible');
-    }
-  });
-
-  // Initial calculation
-  window.addEventListener('load', calculate);
-</script>
 
 <script>
 
