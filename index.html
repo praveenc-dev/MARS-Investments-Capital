@@ -53,6 +53,7 @@
     }
 
     .hero-badge {
+      font-family: "Nunito Sans", sans-serif;
       display: inline-flex;
       align-items: center;
       gap: 8px;
@@ -77,9 +78,8 @@
 
     .hero h1 {
       /* font-family: 'Playfair Display', serif; */
-
       /* font-family: 'Road Radio', sans-serif; */
-      /* font-family: "Nunito Sans", sans-serif; */
+      font-family: "Nunito Sans", sans-serif;
       font-size: clamp(36px, 5vw, 58px);
       line-height: 1.15;
       font-weight: 800;
@@ -96,6 +96,7 @@
     }
 
     .hero-sub {
+      font-family: "Nunito Sans", sans-serif;
       font-size: 17px;
       color: var(--gray);
       line-height: 1.7;
@@ -118,12 +119,14 @@
     }
 
     .stat-chip .num {
+      font-family: "Nunito Sans", sans-serif;
       font-size: 22px;
       font-weight: 700;
       color: var(--dark);
     }
 
     .stat-chip .label {
+      font-family: "Nunito Sans", sans-serif;
       font-size: 12px;
       color: var(--gray);
     }
@@ -1429,12 +1432,12 @@
               <button class="toggle-pill" id="btnLump" onclick="setMode('Lumpsum')">Lumpsum</button>
               <div class="ml-auto cc-plan-toggle">
                 <span class="plan-label" id="planLabel">Regular</span>
-                <label class="switch">
+                <!-- <label class="switch">
                   <input type="checkbox" id="planToggle" onchange="togglePlan()" checked>
                   <span class="slider-round"></span>
-                </label>
+                </label> -->
                 <!-- <span class="plan-label" id="planLabel2" style="opacity:.45">Direct</span> -->
-              </div>
+              </div> 
             </div>
 
             <hr class="cc-hr" />
